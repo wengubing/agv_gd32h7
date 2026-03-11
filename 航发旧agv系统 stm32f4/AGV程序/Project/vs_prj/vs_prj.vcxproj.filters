@@ -1,0 +1,1433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\User">
+      <UniqueIdentifier>{77b99f17-9382-4633-92bc-f995f482c0e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\CBB">
+      <UniqueIdentifier>{9543e326-5ea2-45c1-9fe4-1aa5565d0f3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\AGV">
+      <UniqueIdentifier>{0698141c-34b9-482c-aba5-afc866c3bd36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Drivers">
+      <UniqueIdentifier>{c7576229-a7b8-46ae-be3d-d20070c647ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Libraries">
+      <UniqueIdentifier>{02c5fb94-fd86-4e6a-91e9-0a4900b9eca2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\ExternConfig">
+      <UniqueIdentifier>{19ca1d0b-348d-4e39-bd01-db7c74adb8bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\ObjUpDate">
+      <UniqueIdentifier>{78f7a7f0-e104-4402-ae90-5a78fa91dbe5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="其它">
+      <UniqueIdentifier>{d887517e-7594-417d-89d4-a96a6fff05e4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\ACC_Project\ACC_Ctrl\ACC_AbsorptionCtrl.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ACC_Project\ACC_Ctrl\ACC_AGVCtrl.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ACC_Project\ACC_Ctrl\ACC_AssemlyCtrl.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ACC_Project\ACC_Ctrl\ACC_LeadShineCtrl.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ACC_Project\ACC_Ctrl\ACC_LegCtrl.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ACC_Project\ACC_Ctrl\ACC_PushPullCtrl.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ACC_Project\ACC_Ctrl\ACC_LiftCtrl.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ACC_Project\ACC_Ctrl\ACC_RollerCtrl.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ACC_Project\ACC_Ctrl\ACC_WalkMotorResolving.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ExternConfig\Conf_Template.c">
+      <Filter>源文件\ExternConfig</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ExternConfig\Conf_Test.c">
+      <Filter>源文件\ExternConfig</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ExternConfig\Fun_Template.c">
+      <Filter>源文件\ExternConfig</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\drivers\STM32\canfestival_timer.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\example\LinkCanopenMaster.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\example\ObjectDictionary.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\src\dcf.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\src\emcy.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\src\lifegrd.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\src\lss.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\src\nmtMaster.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\src\nmtSlave.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\src\objacces.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\src\pdo.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\src\sdo.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\src\states.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\src\symbols.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\src\sync.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\src\timer.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\CustomUART\Custom_UART.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\ModbusRtuPoll\drv_485Usart.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\ModbusRtuPoll\ModbusRtuPoll.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\RTX\portable\HAL_CM1.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\RTX\portable\HAL_CM3.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\RTX\portable\HAL_CM4.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\RTX\src\rt_Event.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\RTX\src\rt_List.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\RTX\src\rt_Mailbox.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\RTX\src\rt_MemBox.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\RTX\src\rt_Mutex.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\RTX\src\rt_Robin.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\RTX\src\rt_Semaphore.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\RTX\src\rt_System.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\RTX\src\rt_Task.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\RTX\src\rt_Time.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\RTX\src\rt_Timer.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\SPI_EEPROM\spi_eeprom.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\src\drv_1Wire.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\src\drv_232Usart.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\src\drv_ADC.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\src\drv_analog.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\src\drv_can.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\src\drv_Common.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\src\drv_ee_para.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\src\drv_IO.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\src\drv_led.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\src\drv_sdio.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\src\drv_sdio_sd.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\src\drv_Servo.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\src\drv_spi.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\src\drv_stm32f4rtc.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\src\drv_timer.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Drivers\src\drv_WatchDog.c">
+      <Filter>源文件\Drivers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\app_SkeletonAGV\app_AGVAutorunAltitude.c">
+      <Filter>源文件\AGV</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\app_SkeletonAGV\app_AGVAutorunBerthObstruct.c">
+      <Filter>源文件\AGV</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\app_SkeletonAGV\app_AGVAutorunHangHigh.c">
+      <Filter>源文件\AGV</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\app_SkeletonAGV\app_AGVAutorunLegTelescopic.c">
+      <Filter>源文件\AGV</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\app_SkeletonAGV\app_AGVAutorunPosture.c">
+      <Filter>源文件\AGV</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\app_SkeletonAGV\app_AGVAutorunSpecialCommand.c">
+      <Filter>源文件\AGV</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\app_SkeletonAGV\app_AGVAutorunWalk.c">
+      <Filter>源文件\AGV</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\app_SkeletonAGV\app_AGVInit.c">
+      <Filter>源文件\AGV</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\app_SkeletonAGV\app_AGVKalmanFilter.c">
+      <Filter>源文件\AGV</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\app_SkeletonAGV\app_DependenceAGV.c">
+      <Filter>源文件\AGV</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\app_SkeletonAGV\app_SkeletonAGV.c">
+      <Filter>源文件\AGV</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\app_SkeletonAGV\drv_path.c">
+      <Filter>源文件\AGV</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\app_SkeletonAGV\drv_pid.c">
+      <Filter>源文件\AGV</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\CMSIS\DSP_Lib\Source\CommonTables\arm_common_tables.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\CMSIS\DSP_Lib\Source\CommonTables\arm_const_structs.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\CMSIS\DSP_Lib\Source\FastMathFunctions\arm_cos_f32.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\CMSIS\DSP_Lib\Source\FastMathFunctions\arm_sin_f32.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\misc.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cec.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dsi.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash_ramfunc.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmpi2c.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_lptim.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_qspi.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sai.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spdifrx.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.c">
+      <Filter>源文件\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\drivers\drv_BjfPGV\drv_BjfPGV.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\drivers\drv_BMSData\drv_BMSData.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\drivers\drv_KxdBMS\drv_KxdBMS.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\drivers\drv_LeadShineData\drv_LeadShineData.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\drivers\drv_MagneticNavigationData\drv_MagneticNavigationData.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\drivers\drv_MergeToPGV\drv_MergeToPGV.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\drivers\drv_PGVData\drv_PGVData.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\drivers\drv_QinnavData\drv_QinnavData.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\drivers\drv_R2000DataAnalysis\drv_R2000DataAnalysis.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\drivers\drv_RFIDData\drv_RFIDData.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\drivers\drv_RibbonDectorData\drv_RibbonDectorData.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\drivers\drv_ROKITData\drv_ROKITData.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\drivers\drv_SpeechModuleData\drv_SpeechModuleData.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\drivers\drv_WirelessHandle\drv_WirelessHandle.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\app_Assembly\app_Assembly.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\app_AtuoRotationControl\app_AtuoRotationControl.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\app_CenterPointCal\app_CenterPointCal.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\app_DataFilter\app_DataFilter.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\app_DataSmoothing\app_DataSmoothing.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\app_DiscreteMagNav\app_DiscreteMagNav.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\app_FanCtrl\app_FanCtrl.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\app_FixedJustify\app_FixedJustify.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\app_HMIScreenRefreshes\app_HMIScreenRefreshes.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\app_IOFilter\app_IOFilter.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\app_LeadShineServoControl\app_LeadShineServoControl.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\app_LiftCtrl\app_LiftCtrl.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\app_LoadDetection\app_LoadDetection.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\app_Locate\app_Locate.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\app_MagFilter\app_MagFilter.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\app_MagneticTrace\app_MagneticTrace.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\app_MagneticVirtual\app_MagneticVirtual.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\app_MecanumWheel\app_MecanumWheel.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\app_MotorResolving\app_MotorResolving.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\app_PairPusher\app_PairPusher.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\app_PlatformLiftControl\app_PlatformLiftControl.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\app_PushPullCtrl\app_PushPullCtrl.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\app_RadarObstacleAvoidance\app_RadarObstacleAvoidance.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\app_ShelfAutadj\app_ShelfAutadj.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\app_SoundLightNotice\app_SoundLightNotice.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\app_Voiceplayer\app_Voiceplayer.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\basecalfunc\basecalfunc.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\basecalfunc\BoolFlashCtrl.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\drv_VirtualOdometer\drv_VirtualOdometer.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CBB\user\hal_HardwareInterfaceIO\hal_HardwareInterfaceIO.c">
+      <Filter>源文件\CBB</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ACC_Project\AgvChassisController\ACC_FaultsResponse.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ACC_Project\AgvChassisController\ACC_LineTrace.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ACC_Project\AgvChassisController\ACC_ModeSwitch.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ACC_Project\AgvChassisController\ACC_OBS.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ACC_Project\AgvChassisController\ACC_ServoEnCtrl.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ACC_Project\AgvChassisController\AgvChassisController.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ACC_Project\ACC_Init.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ACC_Project\ACC_Project.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\HAL\ADDA.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\HAL\CommConf.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\HAL\IOConf.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\HMI\HMI.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate.c">
+      <Filter>源文件\ObjUpDate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate_ABS.c">
+      <Filter>源文件\ObjUpDate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate_AGV.c">
+      <Filter>源文件\ObjUpDate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate_Assemly.c">
+      <Filter>源文件\ObjUpDate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate_BMS.c">
+      <Filter>源文件\ObjUpDate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate_Coord.c">
+      <Filter>源文件\ObjUpDate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate_IO.c">
+      <Filter>源文件\ObjUpDate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate_Lift.c">
+      <Filter>源文件\ObjUpDate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate_LoadDetection.c">
+      <Filter>源文件\ObjUpDate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate_Mag.c">
+      <Filter>源文件\ObjUpDate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate_PGV.c">
+      <Filter>源文件\ObjUpDate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate_RFID.c">
+      <Filter>源文件\ObjUpDate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate_VoicePlayer.c">
+      <Filter>源文件\ObjUpDate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate_WheelAngle.c">
+      <Filter>源文件\ObjUpDate</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\SerialExp\SwitchboardData.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\User\AppTsk.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\User\BaseApi.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\User\bsp.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\User\CBB_Init.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\User\CtrlSourceSwitch.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\User\Debug.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\User\EmgJudge.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\User\EQPComm_Init.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\User\LinearCal.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\User\main.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\User\MB_LinkApp.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\User\ObjConf.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\User\Para_EEPROM.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\User\Para_Sys.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\User\Patch.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\User\PowerOn.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\User\RTX_Conf_CM.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\User\RTX_lib.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\User\stm32f4xx_assert.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\User\stm32f4xx_it.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ACC_Project\ACC_Ctrl\ACC_AsbCtrl_OnlyRemote.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\User\AgvSimulator\AgvSimulator.c">
+      <Filter>源文件\User</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ExternConfig\Conf_User.c">
+      <Filter>源文件\ExternConfig</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Drivers\RTX\portable\SVC_Table.s">
+      <Filter>源文件\Drivers</Filter>
+    </None>
+    <None Include="..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f40_41xxx.s">
+      <Filter>源文件\Libraries</Filter>
+    </None>
+    <None Include="..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f410xx.s">
+      <Filter>源文件\Libraries</Filter>
+    </None>
+    <None Include="..\MDK-ARM(uV5)\debug.ini">
+      <Filter>其它</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\User\includes.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ACC_Project\ACC_Init.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ACC_Project\ACC_Project.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ACC_Project\ACC_Ctrl\ACC_AbsorptionCtrl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ACC_Project\ACC_Ctrl\ACC_AGVCtrl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ACC_Project\ACC_Ctrl\ACC_AssemlyCtrl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ACC_Project\ACC_Ctrl\ACC_LeadShineCtrl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ACC_Project\ACC_Ctrl\ACC_LegCtrl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ACC_Project\ACC_Ctrl\ACC_LiftCtrl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ACC_Project\ACC_Ctrl\ACC_PushPullCtrl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ACC_Project\ACC_Ctrl\ACC_RollerCtrl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ACC_Project\ACC_Ctrl\ACC_WalkMotorResolving.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ACC_Project\AgvChassisController\ACC_FaultsResponse.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ACC_Project\AgvChassisController\ACC_LineTrace.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ACC_Project\AgvChassisController\ACC_ModeSwitch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ACC_Project\AgvChassisController\ACC_OBS.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ACC_Project\AgvChassisController\ACC_ServoEnCtrl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ACC_Project\AgvChassisController\AgvChassisController.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\app_SkeletonAGV\app_AGVAutorunAccuratePosition.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\app_SkeletonAGV\app_AGVAutorunAltitude.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\app_SkeletonAGV\app_AGVAutorunBerthObstruct.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\app_SkeletonAGV\app_AGVAutorunHangHigh.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\app_SkeletonAGV\app_AGVAutorunLegTelescopic.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\app_SkeletonAGV\app_AGVAutorunPosture.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\app_SkeletonAGV\app_AGVAutorunSpecialCommand.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\app_SkeletonAGV\app_AGVAutorunWalk.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\app_SkeletonAGV\app_AGVInit.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\app_SkeletonAGV\app_AGVKalmanFilter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\app_SkeletonAGV\app_DependenceAGV.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\app_SkeletonAGV\app_SkeletonAGV.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\app_SkeletonAGV\drv_path.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\app_SkeletonAGV\drv_pid.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\example\LinkCanopenMaster.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\example\ObjectDictionary.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\can.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\can_driver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\config.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\data.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\dcf.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\def.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\emcy.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\lifegrd.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\lss.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\nmtMaster.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\nmtSlave.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\objacces.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\ObjDict.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\objdictdef.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\pdo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\sdo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\states.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\sync.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\sysdep.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\timer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\STM32\applicfg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\STM32\can_STM32.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\STM32\canfestival.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\STM32\timerscfg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\Common\Binsys.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\Common\DeviceDefine.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\Common\UserDefines.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\CustomUART\Custom_UART.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\FatFS\src\diskio.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\FatFS\src\ff.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\FatFS\src\ffconf.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\FatFS\src\integer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\inc\DeviceDefine.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\inc\drv_1Wire.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\inc\drv_232Usart.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\inc\drv_ADC.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\inc\drv_analog.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\inc\drv_can.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\inc\drv_Common.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\inc\drv_ee_para.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\inc\drv_IO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\inc\drv_IODef.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\inc\drv_led.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\inc\drv_sdio.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\inc\drv_sdio_sd.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\inc\drv_Servo.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\inc\drv_spi.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\inc\drv_stm32f4rtc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\inc\drv_timer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\inc\drv_WatchDog.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\inc\Stm32f4_Usart_Define.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\ModbusRtuPoll\ModbusRtuPoll.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\RTX\inc\rt_Event.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\RTX\inc\rt_List.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\RTX\inc\rt_Mailbox.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\RTX\inc\rt_MemBox.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\RTX\inc\rt_Mutex.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\RTX\inc\rt_Robin.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\RTX\inc\rt_Semaphore.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\RTX\inc\rt_System.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\RTX\inc\rt_Task.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\RTX\inc\rt_Time.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\RTX\inc\rt_Timer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\RTX\inc\rt_TypeDef.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\RTX\inc\RTL.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\RTX\inc\RTX_Config.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\RTX\portable\rt_HAL_CM.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Drivers\SPI_EEPROM\spi_eeprom.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ExternConfig\Conf_Template.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ExternConfig\Conf_Test.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ExternConfig\Fun_Template.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\HAL\ADDA.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\HAL\CommConf.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\HAL\IOConf.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\HMI\HMI.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\CMSIS\Include\arm_common_tables.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\CMSIS\Include\arm_const_structs.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\CMSIS\Include\arm_math.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\CMSIS\Include\core_cm0.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\CMSIS\Include\core_cm0plus.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\CMSIS\Include\core_cm3.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\CMSIS\Include\core_cm4.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\CMSIS\Include\core_cm7.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\CMSIS\Include\core_cmFunc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\CMSIS\Include\core_cmInstr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\CMSIS\Include\core_cmSimd.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\CMSIS\Include\core_sc000.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\CMSIS\Include\core_sc300.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\misc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_adc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_cec.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_crc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_cryp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dac.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dbgmcu.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dcmi.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dma.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dma2d.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dsi.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_exti.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_flash.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_flash_ramfunc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fmc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fmpi2c.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fsmc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_gpio.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_hash.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_i2c.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_iwdg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_lptim.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_pwr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_qspi.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_rcc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_rng.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_rtc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sdio.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_spdifrx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_spi.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_syscfg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_tim.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_usart.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_wwdg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate_ABS.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate_AGV.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate_Assemly.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate_BMS.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate_Coord.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate_IO.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate_Lift.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate_LoadDetection.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate_Mag.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate_PGV.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate_RFID.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate_VoicePlayer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate_WheelAngle.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SerialExp\SerialExp_Disperse.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\SerialExp\SwitchboardData.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\User\AppTsk.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\User\BaseApi.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\User\bsp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\User\CBB_Init.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\User\CtrlSourceSwitch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\User\Debug.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\User\EmgJudge.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\User\EQPComm_Init.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\User\LinearCal.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\User\main.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\User\MB_LinkApp.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\User\ObjConf.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\User\Para_EEPROM.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\User\Para_Sys.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\User\Patch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\User\PowerOn.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\User\stm32f4xx_conf.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\User\stm32f4xx_it.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\drivers\drv_BjfPGV\drv_BjfPGV.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\drivers\drv_BMSData\drv_BMSData.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\drivers\drv_KxdBMS\drv_KxdBMS.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\drivers\drv_LeadShineData\drv_LeadShineData.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\drivers\drv_MagneticNavigationData\drv_MagneticNavigationData.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\drivers\drv_MergeToPGV\drv_MergeToPGV.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\drivers\drv_PGVData\drv_PGVData.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\drivers\drv_QinnavData\drv_QinnavData.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\drivers\drv_R2000DataAnalysis\drv_R2000DataAnalysis.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\drivers\drv_RFIDData\drv_RFIDData.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\drivers\drv_RibbonDectorData\drv_RibbonDectorData.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\drivers\drv_ROKITData\drv_ROKITData.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\drivers\drv_SpeechModuleData\drv_SpeechModuleData.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\drivers\drv_WirelessHandle\drv_WirelessHandle.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\app_AlarmCode\app_AlarmCode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\app_Assembly\app_Assembly.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\app_AtuoRotationControl\app_AtuoRotationControl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\app_CenterPointCal\app_CenterPointCal.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\app_DataFilter\app_DataFilter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\app_DataSmoothing\app_DataSmoothing.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\app_DiscreteMagNav\app_DiscreteMagNav.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\app_FanCtrl\app_FanCtrl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\app_FixedJustify\app_FixedJustify.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\app_IOFilter\app_IOFilter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\app_LeadShineServoControl\app_LeadShineServoControl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\app_LiftCtrl\app_LiftCtrl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\app_LoadDetection\app_LoadDetection.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\app_Locate\app_Locate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\app_MagFilter\app_MagFilter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\app_MagneticTrace\app_MagneticTrace.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\app_MagneticVirtual\app_MagneticVirtual.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\app_MecanumWheel\app_MecanumWheel.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\app_MotorResolving\app_MotorResolving.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\app_PairPusher\app_PairPusher.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\app_PlatformLiftControl\app_PlatformLiftControl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\app_PushPullCtrl\app_PushPullCtrl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\app_RadarObstacleAvoidance\app_RadarObstacleAvoidance.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\app_ShelfAutadj\app_ShelfAutadj.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\app_SoundLightNotice\app_SoundLightNotice.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\app_Voiceplayer\app_Voiceplayer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\basecalfunc\basecalfunc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\basecalfunc\BoolFlashCtrl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\basecalfunc\common_def.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\CBB\user\drv_VirtualOdometer\drv_VirtualOdometer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ACC_Project\ACC_Ctrl\ACC_AsbCtrl_OnlyRemote.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\User\AgvSimulator\AgvSimulator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ExternConfig\Conf_User.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

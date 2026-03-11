@@ -1,0 +1,34 @@
+{
+    "folders" : [
+        {
+            "path" : "../../ACC_Project",
+        },
+        {
+            "path" : "../../app_SkeletonAGV",
+        },
+		{
+            "path" : "../../CBB",
+        },
+		{
+            "path" : "../../Drivers",
+        },
+		{
+            "path" : "../../ExternConfig",
+        },
+		{
+            "path" : "../../HAL",
+        },
+		{
+            "path" : "../../Libraries",
+        },
+		{
+            "path" : "../../ObjUpDate",
+        },
+		{
+            "path" : "../../SerialExp",
+        },
+		{
+            "path" : "../../User",
+        },
+    ]
+}

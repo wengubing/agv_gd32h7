@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{649667ef-09a8-4703-931c-b119a62ce72b}</ProjectGuid>
+    <RootNamespace>vsprj</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Keil_v5\ARM\ARM_Compiler_5.06u7\include;$(ProjectDir)\..\..\User;$(ProjectDir)\..\..\ACC_Project;$(ProjectDir)\..\..\app_SkeletonAGV;$(ProjectDir)\..\..\CBB;$(ProjectDir)\..\..\Drivers;$(ProjectDir)\..\..\ExternConfig;$(ProjectDir)\..\..\HAL;$(ProjectDir)\..\..\HMI;$(ProjectDir)\..\..\Libraries;$(ProjectDir)\..\..\ObjUpDate;$(ProjectDir)\..\..\SerialExp;$(ProjectDir)\..\..\ACC_Ctrl;$(ProjectDir)\..\..\AgvChassisController;$(ProjectDir)\..\..\Drivers\inc;$(ProjectDir)\..\..\Libraries\CMSIS\Include;$(ProjectDir)\..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc;$(ProjectDir)\..\..\CBB\user\basecalfunc;$(ProjectDir)\..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include;$(ProjectDir)\..\..\Drivers\CanOpen\CanFestival-3\include\STM32;$(ProjectDir)\..\..\Drivers\Common;$(ProjectDir)\..\..\Drivers\RTX\inc;$(ProjectDir)\..\..\Drivers\CanOpen\CanFestival-3\include;$(ProjectDir)\..\..\Drivers\CanOpen\CanFestival-3\example;$(ProjectDir)\..\..\Drivers\ModbusRtuPoll;$(ProjectDir)\..\..\Drivers\CustomUART;$(ProjectDir)\..\..\Drivers\RTX\portable;$(ProjectDir)\..\..\Drivers\FatFS\src;$(ProjectDir)\..\..\CBB\user\app_DataFilter;$(ProjectDir)\..\..\CBB\user\app_FanCtrl;$(ProjectDir)\..\..\CBB\user\app_AlarmCode;$(ProjectDir)\..\..\CBB\user\app_Voiceplayer;$(ProjectDir)\..\..\CBB\user\app_LeadShineServoControl;$(ProjectDir)\..\..\CBB\user\app_ShelfAutadj;$(ProjectDir)\..\..\CBB\user\app_CenterPointCal;$(ProjectDir)\..\..\CBB\user\app_Assembly;$(ProjectDir)\..\..\CBB\user\app_DataSmoothing;$(ProjectDir)\..\..\CBB\drivers\drv_ROKITData;$(ProjectDir)\..\..\CBB\drivers\drv_RFIDData;$(ProjectDir)\..\..\CBB\drivers\drv_MagneticNavigationData;$(ProjectDir)\..\..\CBB\drivers\drv_MergeToPGV;$(ProjectDir)\..\..\CBB\drivers\drv_KxdBMS;$(ProjectDir)\..\..\CBB\drivers\drv_PGVData;$(ProjectDir)\..\..\CBB\drivers\drv_BjfPGV;$(ProjectDir)\..\..\ACC_Project\AgvChassisController;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\ACC_Project\ACC_Ctrl\ACC_AbsorptionCtrl.c" />
+    <ClCompile Include="..\..\ACC_Project\ACC_Ctrl\ACC_AGVCtrl.c" />
+    <ClCompile Include="..\..\ACC_Project\ACC_Ctrl\ACC_AsbCtrl_OnlyRemote.c" />
+    <ClCompile Include="..\..\ACC_Project\ACC_Ctrl\ACC_AssemlyCtrl.c" />
+    <ClCompile Include="..\..\ACC_Project\ACC_Ctrl\ACC_LeadShineCtrl.c" />
+    <ClCompile Include="..\..\ACC_Project\ACC_Ctrl\ACC_LegCtrl.c" />
+    <ClCompile Include="..\..\ACC_Project\ACC_Ctrl\ACC_LiftCtrl.c" />
+    <ClCompile Include="..\..\ACC_Project\ACC_Ctrl\ACC_PushPullCtrl.c" />
+    <ClCompile Include="..\..\ACC_Project\ACC_Ctrl\ACC_RollerCtrl.c" />
+    <ClCompile Include="..\..\ACC_Project\ACC_Ctrl\ACC_WalkMotorResolving.c" />
+    <ClCompile Include="..\..\ACC_Project\ACC_Init.c" />
+    <ClCompile Include="..\..\ACC_Project\ACC_Project.c" />
+    <ClCompile Include="..\..\ACC_Project\AgvChassisController\ACC_FaultsResponse.c" />
+    <ClCompile Include="..\..\ACC_Project\AgvChassisController\ACC_LineTrace.c" />
+    <ClCompile Include="..\..\ACC_Project\AgvChassisController\ACC_ModeSwitch.c" />
+    <ClCompile Include="..\..\ACC_Project\AgvChassisController\ACC_OBS.c" />
+    <ClCompile Include="..\..\ACC_Project\AgvChassisController\ACC_ServoEnCtrl.c" />
+    <ClCompile Include="..\..\ACC_Project\AgvChassisController\AgvChassisController.c" />
+    <ClCompile Include="..\..\app_SkeletonAGV\app_AGVAutorunAltitude.c" />
+    <ClCompile Include="..\..\app_SkeletonAGV\app_AGVAutorunBerthObstruct.c" />
+    <ClCompile Include="..\..\app_SkeletonAGV\app_AGVAutorunHangHigh.c" />
+    <ClCompile Include="..\..\app_SkeletonAGV\app_AGVAutorunLegTelescopic.c" />
+    <ClCompile Include="..\..\app_SkeletonAGV\app_AGVAutorunPosture.c" />
+    <ClCompile Include="..\..\app_SkeletonAGV\app_AGVAutorunSpecialCommand.c" />
+    <ClCompile Include="..\..\app_SkeletonAGV\app_AGVAutorunWalk.c" />
+    <ClCompile Include="..\..\app_SkeletonAGV\app_AGVInit.c" />
+    <ClCompile Include="..\..\app_SkeletonAGV\app_AGVKalmanFilter.c" />
+    <ClCompile Include="..\..\app_SkeletonAGV\app_DependenceAGV.c" />
+    <ClCompile Include="..\..\app_SkeletonAGV\app_SkeletonAGV.c" />
+    <ClCompile Include="..\..\app_SkeletonAGV\drv_path.c" />
+    <ClCompile Include="..\..\app_SkeletonAGV\drv_pid.c" />
+    <ClCompile Include="..\..\CBB\drivers\drv_BjfPGV\drv_BjfPGV.c" />
+    <ClCompile Include="..\..\CBB\drivers\drv_BMSData\drv_BMSData.c" />
+    <ClCompile Include="..\..\CBB\drivers\drv_KxdBMS\drv_KxdBMS.c" />
+    <ClCompile Include="..\..\CBB\drivers\drv_LeadShineData\drv_LeadShineData.c" />
+    <ClCompile Include="..\..\CBB\drivers\drv_MagneticNavigationData\drv_MagneticNavigationData.c" />
+    <ClCompile Include="..\..\CBB\drivers\drv_MergeToPGV\drv_MergeToPGV.c" />
+    <ClCompile Include="..\..\CBB\drivers\drv_PGVData\drv_PGVData.c" />
+    <ClCompile Include="..\..\CBB\drivers\drv_QinnavData\drv_QinnavData.c" />
+    <ClCompile Include="..\..\CBB\drivers\drv_R2000DataAnalysis\drv_R2000DataAnalysis.c" />
+    <ClCompile Include="..\..\CBB\drivers\drv_RFIDData\drv_RFIDData.c" />
+    <ClCompile Include="..\..\CBB\drivers\drv_RibbonDectorData\drv_RibbonDectorData.c" />
+    <ClCompile Include="..\..\CBB\drivers\drv_ROKITData\drv_ROKITData.c" />
+    <ClCompile Include="..\..\CBB\drivers\drv_SpeechModuleData\drv_SpeechModuleData.c" />
+    <ClCompile Include="..\..\CBB\drivers\drv_WirelessHandle\drv_WirelessHandle.c" />
+    <ClCompile Include="..\..\CBB\user\app_Assembly\app_Assembly.c" />
+    <ClCompile Include="..\..\CBB\user\app_AtuoRotationControl\app_AtuoRotationControl.c" />
+    <ClCompile Include="..\..\CBB\user\app_CenterPointCal\app_CenterPointCal.c" />
+    <ClCompile Include="..\..\CBB\user\app_DataFilter\app_DataFilter.c" />
+    <ClCompile Include="..\..\CBB\user\app_DataSmoothing\app_DataSmoothing.c" />
+    <ClCompile Include="..\..\CBB\user\app_DiscreteMagNav\app_DiscreteMagNav.c" />
+    <ClCompile Include="..\..\CBB\user\app_FanCtrl\app_FanCtrl.c" />
+    <ClCompile Include="..\..\CBB\user\app_FixedJustify\app_FixedJustify.c" />
+    <ClCompile Include="..\..\CBB\user\app_HMIScreenRefreshes\app_HMIScreenRefreshes.c" />
+    <ClCompile Include="..\..\CBB\user\app_IOFilter\app_IOFilter.c" />
+    <ClCompile Include="..\..\CBB\user\app_LeadShineServoControl\app_LeadShineServoControl.c" />
+    <ClCompile Include="..\..\CBB\user\app_LiftCtrl\app_LiftCtrl.c" />
+    <ClCompile Include="..\..\CBB\user\app_LoadDetection\app_LoadDetection.c" />
+    <ClCompile Include="..\..\CBB\user\app_Locate\app_Locate.c" />
+    <ClCompile Include="..\..\CBB\user\app_MagFilter\app_MagFilter.c" />
+    <ClCompile Include="..\..\CBB\user\app_MagneticTrace\app_MagneticTrace.c" />
+    <ClCompile Include="..\..\CBB\user\app_MagneticVirtual\app_MagneticVirtual.c" />
+    <ClCompile Include="..\..\CBB\user\app_MecanumWheel\app_MecanumWheel.c" />
+    <ClCompile Include="..\..\CBB\user\app_MotorResolving\app_MotorResolving.c" />
+    <ClCompile Include="..\..\CBB\user\app_PairPusher\app_PairPusher.c" />
+    <ClCompile Include="..\..\CBB\user\app_PlatformLiftControl\app_PlatformLiftControl.c" />
+    <ClCompile Include="..\..\CBB\user\app_PushPullCtrl\app_PushPullCtrl.c" />
+    <ClCompile Include="..\..\CBB\user\app_RadarObstacleAvoidance\app_RadarObstacleAvoidance.c" />
+    <ClCompile Include="..\..\CBB\user\app_ShelfAutadj\app_ShelfAutadj.c" />
+    <ClCompile Include="..\..\CBB\user\app_SoundLightNotice\app_SoundLightNotice.c" />
+    <ClCompile Include="..\..\CBB\user\app_Voiceplayer\app_Voiceplayer.c" />
+    <ClCompile Include="..\..\CBB\user\basecalfunc\basecalfunc.c" />
+    <ClCompile Include="..\..\CBB\user\basecalfunc\BoolFlashCtrl.c" />
+    <ClCompile Include="..\..\CBB\user\drv_VirtualOdometer\drv_VirtualOdometer.c" />
+    <ClCompile Include="..\..\CBB\user\hal_HardwareInterfaceIO\hal_HardwareInterfaceIO.c" />
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\drivers\STM32\canfestival_timer.c" />
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\example\LinkCanopenMaster.c" />
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\example\ObjectDictionary.c" />
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\src\dcf.c" />
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\src\emcy.c" />
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\src\lifegrd.c" />
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\src\lss.c" />
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\src\nmtMaster.c" />
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\src\nmtSlave.c" />
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\src\objacces.c" />
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\src\pdo.c" />
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\src\sdo.c" />
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\src\states.c" />
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\src\symbols.c" />
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\src\sync.c" />
+    <ClCompile Include="..\..\Drivers\CanOpen\CanFestival-3\src\timer.c" />
+    <ClCompile Include="..\..\Drivers\CustomUART\Custom_UART.c" />
+    <ClCompile Include="..\..\Drivers\ModbusRtuPoll\drv_485Usart.c" />
+    <ClCompile Include="..\..\Drivers\ModbusRtuPoll\ModbusRtuPoll.c" />
+    <ClCompile Include="..\..\Drivers\RTX\portable\HAL_CM1.c" />
+    <ClCompile Include="..\..\Drivers\RTX\portable\HAL_CM3.c" />
+    <ClCompile Include="..\..\Drivers\RTX\portable\HAL_CM4.c" />
+    <ClCompile Include="..\..\Drivers\RTX\src\rt_Event.c" />
+    <ClCompile Include="..\..\Drivers\RTX\src\rt_List.c" />
+    <ClCompile Include="..\..\Drivers\RTX\src\rt_Mailbox.c" />
+    <ClCompile Include="..\..\Drivers\RTX\src\rt_MemBox.c" />
+    <ClCompile Include="..\..\Drivers\RTX\src\rt_Mutex.c" />
+    <ClCompile Include="..\..\Drivers\RTX\src\rt_Robin.c" />
+    <ClCompile Include="..\..\Drivers\RTX\src\rt_Semaphore.c" />
+    <ClCompile Include="..\..\Drivers\RTX\src\rt_System.c" />
+    <ClCompile Include="..\..\Drivers\RTX\src\rt_Task.c" />
+    <ClCompile Include="..\..\Drivers\RTX\src\rt_Time.c" />
+    <ClCompile Include="..\..\Drivers\RTX\src\rt_Timer.c" />
+    <ClCompile Include="..\..\Drivers\SPI_EEPROM\spi_eeprom.c" />
+    <ClCompile Include="..\..\Drivers\src\drv_1Wire.c" />
+    <ClCompile Include="..\..\Drivers\src\drv_232Usart.c" />
+    <ClCompile Include="..\..\Drivers\src\drv_ADC.c" />
+    <ClCompile Include="..\..\Drivers\src\drv_analog.c" />
+    <ClCompile Include="..\..\Drivers\src\drv_can.c" />
+    <ClCompile Include="..\..\Drivers\src\drv_Common.c" />
+    <ClCompile Include="..\..\Drivers\src\drv_ee_para.c" />
+    <ClCompile Include="..\..\Drivers\src\drv_IO.c" />
+    <ClCompile Include="..\..\Drivers\src\drv_led.c" />
+    <ClCompile Include="..\..\Drivers\src\drv_sdio.c" />
+    <ClCompile Include="..\..\Drivers\src\drv_sdio_sd.c" />
+    <ClCompile Include="..\..\Drivers\src\drv_Servo.c" />
+    <ClCompile Include="..\..\Drivers\src\drv_spi.c" />
+    <ClCompile Include="..\..\Drivers\src\drv_stm32f4rtc.c" />
+    <ClCompile Include="..\..\Drivers\src\drv_timer.c" />
+    <ClCompile Include="..\..\Drivers\src\drv_WatchDog.c" />
+    <ClCompile Include="..\..\ExternConfig\Conf_Template.c" />
+    <ClCompile Include="..\..\ExternConfig\Conf_Test.c" />
+    <ClCompile Include="..\..\ExternConfig\Conf_User.c" />
+    <ClCompile Include="..\..\ExternConfig\Fun_Template.c" />
+    <ClCompile Include="..\..\HAL\ADDA.c" />
+    <ClCompile Include="..\..\HAL\CommConf.c" />
+    <ClCompile Include="..\..\HAL\IOConf.c" />
+    <ClCompile Include="..\..\HMI\HMI.c" />
+    <ClCompile Include="..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c" />
+    <ClCompile Include="..\..\Libraries\CMSIS\DSP_Lib\Source\CommonTables\arm_common_tables.c" />
+    <ClCompile Include="..\..\Libraries\CMSIS\DSP_Lib\Source\CommonTables\arm_const_structs.c" />
+    <ClCompile Include="..\..\Libraries\CMSIS\DSP_Lib\Source\FastMathFunctions\arm_cos_f32.c" />
+    <ClCompile Include="..\..\Libraries\CMSIS\DSP_Lib\Source\FastMathFunctions\arm_sin_f32.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\misc.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cec.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_des.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_tdes.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dsi.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash_ramfunc.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmpi2c.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_lptim.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_qspi.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rng.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sai.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spdifrx.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c" />
+    <ClCompile Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.c" />
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate.c" />
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate_ABS.c" />
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate_AGV.c" />
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate_Assemly.c" />
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate_BMS.c" />
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate_Coord.c" />
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate_IO.c" />
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate_Lift.c" />
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate_LoadDetection.c" />
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate_Mag.c" />
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate_PGV.c" />
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate_RFID.c" />
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate_VoicePlayer.c" />
+    <ClCompile Include="..\..\ObjUpDate\ObjUpdate_WheelAngle.c" />
+    <ClCompile Include="..\..\SerialExp\SwitchboardData.c" />
+    <ClCompile Include="..\..\User\AgvSimulator\AgvSimulator.c" />
+    <ClCompile Include="..\..\User\AppTsk.c" />
+    <ClCompile Include="..\..\User\BaseApi.c" />
+    <ClCompile Include="..\..\User\bsp.c" />
+    <ClCompile Include="..\..\User\CBB_Init.c" />
+    <ClCompile Include="..\..\User\CtrlSourceSwitch.c" />
+    <ClCompile Include="..\..\User\Debug.c" />
+    <ClCompile Include="..\..\User\EmgJudge.c" />
+    <ClCompile Include="..\..\User\EQPComm_Init.c" />
+    <ClCompile Include="..\..\User\LinearCal.c" />
+    <ClCompile Include="..\..\User\main.c" />
+    <ClCompile Include="..\..\User\MB_LinkApp.c" />
+    <ClCompile Include="..\..\User\ObjConf.c" />
+    <ClCompile Include="..\..\User\Para_EEPROM.c" />
+    <ClCompile Include="..\..\User\Para_Sys.c" />
+    <ClCompile Include="..\..\User\Patch.c" />
+    <ClCompile Include="..\..\User\PowerOn.c" />
+    <ClCompile Include="..\..\User\RTX_Conf_CM.c" />
+    <ClCompile Include="..\..\User\RTX_lib.c" />
+    <ClCompile Include="..\..\User\stm32f4xx_assert.c" />
+    <ClCompile Include="..\..\User\stm32f4xx_it.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Drivers\RTX\portable\SVC_Table.s" />
+    <None Include="..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f40_41xxx.s" />
+    <None Include="..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f410xx.s" />
+    <None Include="..\MDK-ARM(uV5)\debug.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\ACC_Project\ACC_Ctrl\ACC_AbsorptionCtrl.h" />
+    <ClInclude Include="..\..\ACC_Project\ACC_Ctrl\ACC_AGVCtrl.h" />
+    <ClInclude Include="..\..\ACC_Project\ACC_Ctrl\ACC_AsbCtrl_OnlyRemote.h" />
+    <ClInclude Include="..\..\ACC_Project\ACC_Ctrl\ACC_AssemlyCtrl.h" />
+    <ClInclude Include="..\..\ACC_Project\ACC_Ctrl\ACC_LeadShineCtrl.h" />
+    <ClInclude Include="..\..\ACC_Project\ACC_Ctrl\ACC_LegCtrl.h" />
+    <ClInclude Include="..\..\ACC_Project\ACC_Ctrl\ACC_LiftCtrl.h" />
+    <ClInclude Include="..\..\ACC_Project\ACC_Ctrl\ACC_PushPullCtrl.h" />
+    <ClInclude Include="..\..\ACC_Project\ACC_Ctrl\ACC_RollerCtrl.h" />
+    <ClInclude Include="..\..\ACC_Project\ACC_Ctrl\ACC_WalkMotorResolving.h" />
+    <ClInclude Include="..\..\ACC_Project\ACC_Init.h" />
+    <ClInclude Include="..\..\ACC_Project\ACC_Project.h" />
+    <ClInclude Include="..\..\ACC_Project\AgvChassisController\ACC_FaultsResponse.h" />
+    <ClInclude Include="..\..\ACC_Project\AgvChassisController\ACC_LineTrace.h" />
+    <ClInclude Include="..\..\ACC_Project\AgvChassisController\ACC_ModeSwitch.h" />
+    <ClInclude Include="..\..\ACC_Project\AgvChassisController\ACC_OBS.h" />
+    <ClInclude Include="..\..\ACC_Project\AgvChassisController\ACC_ServoEnCtrl.h" />
+    <ClInclude Include="..\..\ACC_Project\AgvChassisController\AgvChassisController.h" />
+    <ClInclude Include="..\..\app_SkeletonAGV\app_AGVAutorunAccuratePosition.h" />
+    <ClInclude Include="..\..\app_SkeletonAGV\app_AGVAutorunAltitude.h" />
+    <ClInclude Include="..\..\app_SkeletonAGV\app_AGVAutorunBerthObstruct.h" />
+    <ClInclude Include="..\..\app_SkeletonAGV\app_AGVAutorunHangHigh.h" />
+    <ClInclude Include="..\..\app_SkeletonAGV\app_AGVAutorunLegTelescopic.h" />
+    <ClInclude Include="..\..\app_SkeletonAGV\app_AGVAutorunPosture.h" />
+    <ClInclude Include="..\..\app_SkeletonAGV\app_AGVAutorunSpecialCommand.h" />
+    <ClInclude Include="..\..\app_SkeletonAGV\app_AGVAutorunWalk.h" />
+    <ClInclude Include="..\..\app_SkeletonAGV\app_AGVInit.h" />
+    <ClInclude Include="..\..\app_SkeletonAGV\app_AGVKalmanFilter.h" />
+    <ClInclude Include="..\..\app_SkeletonAGV\app_DependenceAGV.h" />
+    <ClInclude Include="..\..\app_SkeletonAGV\app_SkeletonAGV.h" />
+    <ClInclude Include="..\..\app_SkeletonAGV\drv_path.h" />
+    <ClInclude Include="..\..\app_SkeletonAGV\drv_pid.h" />
+    <ClInclude Include="..\..\CBB\drivers\drv_BjfPGV\drv_BjfPGV.h" />
+    <ClInclude Include="..\..\CBB\drivers\drv_BMSData\drv_BMSData.h" />
+    <ClInclude Include="..\..\CBB\drivers\drv_KxdBMS\drv_KxdBMS.h" />
+    <ClInclude Include="..\..\CBB\drivers\drv_LeadShineData\drv_LeadShineData.h" />
+    <ClInclude Include="..\..\CBB\drivers\drv_MagneticNavigationData\drv_MagneticNavigationData.h" />
+    <ClInclude Include="..\..\CBB\drivers\drv_MergeToPGV\drv_MergeToPGV.h" />
+    <ClInclude Include="..\..\CBB\drivers\drv_PGVData\drv_PGVData.h" />
+    <ClInclude Include="..\..\CBB\drivers\drv_QinnavData\drv_QinnavData.h" />
+    <ClInclude Include="..\..\CBB\drivers\drv_R2000DataAnalysis\drv_R2000DataAnalysis.h" />
+    <ClInclude Include="..\..\CBB\drivers\drv_RFIDData\drv_RFIDData.h" />
+    <ClInclude Include="..\..\CBB\drivers\drv_RibbonDectorData\drv_RibbonDectorData.h" />
+    <ClInclude Include="..\..\CBB\drivers\drv_ROKITData\drv_ROKITData.h" />
+    <ClInclude Include="..\..\CBB\drivers\drv_SpeechModuleData\drv_SpeechModuleData.h" />
+    <ClInclude Include="..\..\CBB\drivers\drv_WirelessHandle\drv_WirelessHandle.h" />
+    <ClInclude Include="..\..\CBB\user\app_AlarmCode\app_AlarmCode.h" />
+    <ClInclude Include="..\..\CBB\user\app_Assembly\app_Assembly.h" />
+    <ClInclude Include="..\..\CBB\user\app_AtuoRotationControl\app_AtuoRotationControl.h" />
+    <ClInclude Include="..\..\CBB\user\app_CenterPointCal\app_CenterPointCal.h" />
+    <ClInclude Include="..\..\CBB\user\app_DataFilter\app_DataFilter.h" />
+    <ClInclude Include="..\..\CBB\user\app_DataSmoothing\app_DataSmoothing.h" />
+    <ClInclude Include="..\..\CBB\user\app_DiscreteMagNav\app_DiscreteMagNav.h" />
+    <ClInclude Include="..\..\CBB\user\app_FanCtrl\app_FanCtrl.h" />
+    <ClInclude Include="..\..\CBB\user\app_FixedJustify\app_FixedJustify.h" />
+    <ClInclude Include="..\..\CBB\user\app_IOFilter\app_IOFilter.h" />
+    <ClInclude Include="..\..\CBB\user\app_LeadShineServoControl\app_LeadShineServoControl.h" />
+    <ClInclude Include="..\..\CBB\user\app_LiftCtrl\app_LiftCtrl.h" />
+    <ClInclude Include="..\..\CBB\user\app_LoadDetection\app_LoadDetection.h" />
+    <ClInclude Include="..\..\CBB\user\app_Locate\app_Locate.h" />
+    <ClInclude Include="..\..\CBB\user\app_MagFilter\app_MagFilter.h" />
+    <ClInclude Include="..\..\CBB\user\app_MagneticTrace\app_MagneticTrace.h" />
+    <ClInclude Include="..\..\CBB\user\app_MagneticVirtual\app_MagneticVirtual.h" />
+    <ClInclude Include="..\..\CBB\user\app_MecanumWheel\app_MecanumWheel.h" />
+    <ClInclude Include="..\..\CBB\user\app_MotorResolving\app_MotorResolving.h" />
+    <ClInclude Include="..\..\CBB\user\app_PairPusher\app_PairPusher.h" />
+    <ClInclude Include="..\..\CBB\user\app_PlatformLiftControl\app_PlatformLiftControl.h" />
+    <ClInclude Include="..\..\CBB\user\app_PushPullCtrl\app_PushPullCtrl.h" />
+    <ClInclude Include="..\..\CBB\user\app_RadarObstacleAvoidance\app_RadarObstacleAvoidance.h" />
+    <ClInclude Include="..\..\CBB\user\app_ShelfAutadj\app_ShelfAutadj.h" />
+    <ClInclude Include="..\..\CBB\user\app_SoundLightNotice\app_SoundLightNotice.h" />
+    <ClInclude Include="..\..\CBB\user\app_Voiceplayer\app_Voiceplayer.h" />
+    <ClInclude Include="..\..\CBB\user\basecalfunc\basecalfunc.h" />
+    <ClInclude Include="..\..\CBB\user\basecalfunc\BoolFlashCtrl.h" />
+    <ClInclude Include="..\..\CBB\user\basecalfunc\common_def.h" />
+    <ClInclude Include="..\..\CBB\user\drv_VirtualOdometer\drv_VirtualOdometer.h" />
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\example\LinkCanopenMaster.h" />
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\example\ObjectDictionary.h" />
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\can.h" />
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\can_driver.h" />
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\config.h" />
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\data.h" />
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\dcf.h" />
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\def.h" />
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\emcy.h" />
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\lifegrd.h" />
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\lss.h" />
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\nmtMaster.h" />
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\nmtSlave.h" />
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\objacces.h" />
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\ObjDict.h" />
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\objdictdef.h" />
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\pdo.h" />
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\sdo.h" />
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\states.h" />
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\STM32\applicfg.h" />
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\STM32\canfestival.h" />
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\STM32\can_STM32.h" />
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\STM32\timerscfg.h" />
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\sync.h" />
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\sysdep.h" />
+    <ClInclude Include="..\..\Drivers\CanOpen\CanFestival-3\include\timer.h" />
+    <ClInclude Include="..\..\Drivers\Common\Binsys.h" />
+    <ClInclude Include="..\..\Drivers\Common\DeviceDefine.h" />
+    <ClInclude Include="..\..\Drivers\Common\UserDefines.h" />
+    <ClInclude Include="..\..\Drivers\CustomUART\Custom_UART.h" />
+    <ClInclude Include="..\..\Drivers\FatFS\src\diskio.h" />
+    <ClInclude Include="..\..\Drivers\FatFS\src\ff.h" />
+    <ClInclude Include="..\..\Drivers\FatFS\src\ffconf.h" />
+    <ClInclude Include="..\..\Drivers\FatFS\src\integer.h" />
+    <ClInclude Include="..\..\Drivers\inc\DeviceDefine.h" />
+    <ClInclude Include="..\..\Drivers\inc\drv_1Wire.h" />
+    <ClInclude Include="..\..\Drivers\inc\drv_232Usart.h" />
+    <ClInclude Include="..\..\Drivers\inc\drv_ADC.h" />
+    <ClInclude Include="..\..\Drivers\inc\drv_analog.h" />
+    <ClInclude Include="..\..\Drivers\inc\drv_can.h" />
+    <ClInclude Include="..\..\Drivers\inc\drv_Common.h" />
+    <ClInclude Include="..\..\Drivers\inc\drv_ee_para.h" />
+    <ClInclude Include="..\..\Drivers\inc\drv_IO.h" />
+    <ClInclude Include="..\..\Drivers\inc\drv_IODef.h" />
+    <ClInclude Include="..\..\Drivers\inc\drv_led.h" />
+    <ClInclude Include="..\..\Drivers\inc\drv_sdio.h" />
+    <ClInclude Include="..\..\Drivers\inc\drv_sdio_sd.h" />
+    <ClInclude Include="..\..\Drivers\inc\drv_Servo.h" />
+    <ClInclude Include="..\..\Drivers\inc\drv_spi.h" />
+    <ClInclude Include="..\..\Drivers\inc\drv_stm32f4rtc.h" />
+    <ClInclude Include="..\..\Drivers\inc\drv_timer.h" />
+    <ClInclude Include="..\..\Drivers\inc\drv_WatchDog.h" />
+    <ClInclude Include="..\..\Drivers\inc\Stm32f4_Usart_Define.h" />
+    <ClInclude Include="..\..\Drivers\ModbusRtuPoll\ModbusRtuPoll.h" />
+    <ClInclude Include="..\..\Drivers\RTX\inc\RTL.h" />
+    <ClInclude Include="..\..\Drivers\RTX\inc\RTX_Config.h" />
+    <ClInclude Include="..\..\Drivers\RTX\inc\rt_Event.h" />
+    <ClInclude Include="..\..\Drivers\RTX\inc\rt_List.h" />
+    <ClInclude Include="..\..\Drivers\RTX\inc\rt_Mailbox.h" />
+    <ClInclude Include="..\..\Drivers\RTX\inc\rt_MemBox.h" />
+    <ClInclude Include="..\..\Drivers\RTX\inc\rt_Mutex.h" />
+    <ClInclude Include="..\..\Drivers\RTX\inc\rt_Robin.h" />
+    <ClInclude Include="..\..\Drivers\RTX\inc\rt_Semaphore.h" />
+    <ClInclude Include="..\..\Drivers\RTX\inc\rt_System.h" />
+    <ClInclude Include="..\..\Drivers\RTX\inc\rt_Task.h" />
+    <ClInclude Include="..\..\Drivers\RTX\inc\rt_Time.h" />
+    <ClInclude Include="..\..\Drivers\RTX\inc\rt_Timer.h" />
+    <ClInclude Include="..\..\Drivers\RTX\inc\rt_TypeDef.h" />
+    <ClInclude Include="..\..\Drivers\RTX\portable\rt_HAL_CM.h" />
+    <ClInclude Include="..\..\Drivers\SPI_EEPROM\spi_eeprom.h" />
+    <ClInclude Include="..\..\ExternConfig\Conf_Template.h" />
+    <ClInclude Include="..\..\ExternConfig\Conf_Test.h" />
+    <ClInclude Include="..\..\ExternConfig\Conf_User.h" />
+    <ClInclude Include="..\..\ExternConfig\Fun_Template.h" />
+    <ClInclude Include="..\..\HAL\ADDA.h" />
+    <ClInclude Include="..\..\HAL\CommConf.h" />
+    <ClInclude Include="..\..\HAL\IOConf.h" />
+    <ClInclude Include="..\..\HMI\HMI.h" />
+    <ClInclude Include="..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h" />
+    <ClInclude Include="..\..\Libraries\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h" />
+    <ClInclude Include="..\..\Libraries\CMSIS\Include\arm_common_tables.h" />
+    <ClInclude Include="..\..\Libraries\CMSIS\Include\arm_const_structs.h" />
+    <ClInclude Include="..\..\Libraries\CMSIS\Include\arm_math.h" />
+    <ClInclude Include="..\..\Libraries\CMSIS\Include\core_cm0.h" />
+    <ClInclude Include="..\..\Libraries\CMSIS\Include\core_cm0plus.h" />
+    <ClInclude Include="..\..\Libraries\CMSIS\Include\core_cm3.h" />
+    <ClInclude Include="..\..\Libraries\CMSIS\Include\core_cm4.h" />
+    <ClInclude Include="..\..\Libraries\CMSIS\Include\core_cm7.h" />
+    <ClInclude Include="..\..\Libraries\CMSIS\Include\core_cmFunc.h" />
+    <ClInclude Include="..\..\Libraries\CMSIS\Include\core_cmInstr.h" />
+    <ClInclude Include="..\..\Libraries\CMSIS\Include\core_cmSimd.h" />
+    <ClInclude Include="..\..\Libraries\CMSIS\Include\core_sc000.h" />
+    <ClInclude Include="..\..\Libraries\CMSIS\Include\core_sc300.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\misc.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_adc.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_cec.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_crc.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_cryp.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dac.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dbgmcu.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dcmi.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dma.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dma2d.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dsi.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_exti.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_flash.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_flash_ramfunc.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fmc.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fmpi2c.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fsmc.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_gpio.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_hash.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_i2c.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_iwdg.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_lptim.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_pwr.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_qspi.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_rcc.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_rng.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_rtc.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sdio.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_spdifrx.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_spi.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_syscfg.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_tim.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_usart.h" />
+    <ClInclude Include="..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_wwdg.h" />
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate.h" />
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate_ABS.h" />
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate_AGV.h" />
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate_Assemly.h" />
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate_BMS.h" />
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate_Coord.h" />
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate_IO.h" />
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate_Lift.h" />
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate_LoadDetection.h" />
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate_Mag.h" />
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate_PGV.h" />
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate_RFID.h" />
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate_VoicePlayer.h" />
+    <ClInclude Include="..\..\ObjUpDate\ObjUpdate_WheelAngle.h" />
+    <ClInclude Include="..\..\SerialExp\SerialExp_Disperse.h" />
+    <ClInclude Include="..\..\SerialExp\SwitchboardData.h" />
+    <ClInclude Include="..\..\User\AgvSimulator\AgvSimulator.h" />
+    <ClInclude Include="..\..\User\AppTsk.h" />
+    <ClInclude Include="..\..\User\BaseApi.h" />
+    <ClInclude Include="..\..\User\bsp.h" />
+    <ClInclude Include="..\..\User\CBB_Init.h" />
+    <ClInclude Include="..\..\User\CtrlSourceSwitch.h" />
+    <ClInclude Include="..\..\User\Debug.h" />
+    <ClInclude Include="..\..\User\EmgJudge.h" />
+    <ClInclude Include="..\..\User\EQPComm_Init.h" />
+    <ClInclude Include="..\..\User\includes.h" />
+    <ClInclude Include="..\..\User\LinearCal.h" />
+    <ClInclude Include="..\..\User\main.h" />
+    <ClInclude Include="..\..\User\MB_LinkApp.h" />
+    <ClInclude Include="..\..\User\ObjConf.h" />
+    <ClInclude Include="..\..\User\Para_EEPROM.h" />
+    <ClInclude Include="..\..\User\Para_Sys.h" />
+    <ClInclude Include="..\..\User\Patch.h" />
+    <ClInclude Include="..\..\User\PowerOn.h" />
+    <ClInclude Include="..\..\User\stm32f4xx_conf.h" />
+    <ClInclude Include="..\..\User\stm32f4xx_it.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
