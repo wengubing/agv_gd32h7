@@ -1,0 +1,75 @@
+/*
+*********************************************************************************************************
+*
+*	版    本 : V1.0
+*	说    明 : RTX5及其所有中间件的工程模板实现。
+*              实验目的：
+*                1. 学习RTX5及其所有中间件的工程模板制作。
+*              实验内容：
+*                RL-USB + RL-FlashFS文件系统操作：
+*                请选择串口操作命令，电脑键盘打印数字即可
+*                printf("首次使用，如果操作NAND，务必调用串口命令1，进行NAND Flash的低级格式化和文件系统格式化\r\n");	
+*                printf("1 - 显示卡容量和剩余容量\r\n");
+*                printf("2 - 显示卡根目录下的文件\r\n");
+*                printf("3 - 创建三个text文本并使用不同函数写入内容\r\n");
+*                printf("4 - 使用三个不同函数读取文本\r\n");
+*                printf("5 - 创建一个text文本并指定一个位置对其进行读写操作\r\n");
+*                printf("6 - 删除文件夹和文件\r\n");
+*                printf("7 - 测试文件读写速度\r\n");
+*                printf("8 - 写数据到CSV文件中\r\n");
+*                printf("9 - 从CSV文件中读数据\r\n");
+*                printf("m - 所有操作是针对SD卡命令\r\n");
+*                printf("u - 所有操作针对U盘命令\r\n");
+*                printf("n - 所有操作针对NAND命令\r\n");   
+*                printf("a - 打开SD和NAND模拟U盘\r\n");
+*                printf("b - 关闭SD和NAND模拟U盘\r\n");
+*                printf("f - 启动FTP前，挂载SD卡\r\n");
+*                printf("t - 关闭FTP后，卸载SD卡\r\n");
+*                RL-TCPnet网络协议操作：
+*                （1）强烈推荐将网线接到路由器或者交换机上面测试，因为已经使能了DHCP，可以自动获取IP地址。
+*                     创建了一个TCP Server，而且使能了局域网域名NetBIOS，用户只需在电脑端ping armfly
+*                     就可以获得板子的IP地址，端口号1001。
+*                （2）用户可以在电脑端用网络调试软件创建TCP Client连接此服务器端。
+*                （3）按键K1按下，发送8字节的数据给TCP Client。
+*                （4）按键K2按下，发送1024字节的数据给TCP Client。
+*                （5）按键K3按下，发送5MB字节的数据给TCP Client。
+*                （6）各个任务实现的功能如下：
+*                     AppTaskUserIF任务   : 按键消息处理。
+*                     AppTaskLED任务      : LED闪烁。
+*                     AppTaskMsgPro任务   : TCPnet应用任务。
+*                     AppTaskEthCheck任务 : 网线插拔状态检测。
+*                     AppTaskGUI任务      : GUI任务。
+*                     AppTaskFsUsb任务    : 文件系统和USB网络任务。
+*                     AppTaskStart任务    : 启动任务，也是最高优先级任务，这里用作BSP驱动包处理。
+*                     netCore_Thread任务  : TCPnet内核任务。
+*                     netEth0_Thread任务  : TCPnet以太网接口任务。
+*                     USBD0_Core_Thread任务: USB内核任务。
+*                     USBD_MSC0_Thread任务 : 大容量存储设备任务。
+*                     osRtxTimerThread任务: 定时器任务，TCPnet时间基准。
+*              注意事项：
+*                1. 为了RTX5的调试组件正常使用，RTX5的工程路径切不要有中文，路径不要太长。
+*                   而且退出调试状态要清除所有断点。
+*                2. 本实验推荐使用串口软件SecureCRT查看打印信息，波特率115200，数据位8，奇偶校验位无，停止位1。
+*                3. 务必将编辑器的缩进参数和TAB设置为4来阅读本文件，要不代码显示不整齐。
+*
+*	修改记录 :
+*		版本号   日期         作者        说明
+*		V1.0    2021-02-08   Eric2013     1. CMSIS软包版本 V5.7.0
+*                                         2. HAL库版本 V1.9.0
+*                                         3. RTX5版本5.5.1
+*                                         4. Event Recorder版本1.4.0
+*                                         5. RL-TCPnet版本V7.X
+*                                         6. RL-USB版本V6.X
+*                                         7. RL-TCPnet版本V6.X
+*                                         8. emWin版本V6.X
+*		V1.1    2021-02-28   Eric2013     1. 添加FTP服务器功能，SD卡做存储介质。
+*                                         2. 支持双USB外设同时使用
+*                                            (1)MicroUSB接口是USB FS，用于在电脑端虚拟出SD卡和NAND两个U盘
+*                                            (2)Type-A接口是USB HS，用于外挂U盘。
+*                                         3. 支持了RL-FlashFS外挂SD卡，NAND和U盘三合一
+*                                            
+*
+*	Copyright (C), 2021-2030, 安富莱电子 www.armfly.com
+*
+*********************************************************************************************************
+*/	
