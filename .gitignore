@@ -7,6 +7,8 @@
 
 #忽略各级目录下的RTE文件夹
 RTE/
+list/
+output/
 
 #忽略keil生成的中间文件和输出文件夹
 *.axf
