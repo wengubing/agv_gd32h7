@@ -1,12 +1,12 @@
 /**
   ******************************************************************************
   * @file     main.c
-  * @author   embedfire
-  * @version  V1.0
-  * @date     2023
-  * @brief    测试led
+  * @author   embedfire / hangfa
+  * @version  V2.0
+  * @date     2025
+  * @brief    GD32H7 RTX5 主程序（集成CANopen主站）
   ******************************************************************************
-  */ 
+  */
 
 #include "gd32h7xx.h"
 #include <stdio.h>
@@ -16,7 +16,11 @@
 #include "bsp_gpio_led.h"    
 #include "bsp_gpio_key.h" 
 #include "bsp_usart.h"                                      //调试打印串口
-#include "can_test.h"                                       //can收发测试
+
+/* CANopen主站 */
+#include "Drivers/CanOpen/drv_servo_gd32h7.h"              //伺服数据结构及公共类型
+#include "Drivers/CanOpen/example/ObjectDictionary.h"       //对象字典
+#include "Drivers/CanOpen/example/LinkCanopenMaster.h"      //CANopen主站接口
 
 /* 任务栈和属性定义
  * 使用 uint64_t 类型数组定义栈，确保 8 字节对齐（Cortex-M7 要求栈对齐）
@@ -47,6 +51,15 @@ static const osThreadAttr_t ThreadStart_Attr =          // 启动任务 任务属性
     .stack_mem  = StartThread_stack,                    // 指向任务栈的指针
     .stack_size = sizeof(StartThread_stack),            // 栈大小（字节）
     .priority   = osPriorityIdle                      	// 任务优先级（最低）
+};
+
+/* CANopen 任务栈及属性 */
+static uint64_t CanOpen_stack[2048/8];              // CANopen任务堆栈（2KB，协议栈需要较大堆栈）
+static const osThreadAttr_t CanOpen_attr = {
+    .name       = "CANopen",
+    .stack_mem  = CanOpen_stack,
+    .stack_size = sizeof(CanOpen_stack),
+    .priority   = osPriorityAboveNormal             // 高于普通任务，确保CAN报文及时处理
 };
 
 /* ---为队列和信号量测试定义的任务栈和属性 --- */
@@ -86,6 +99,7 @@ void Semaphore_task(void *arg);	//信号量同步任务
 void LED_task(void *arg);      	// LED 控制任务
 void Key_task(void *arg);		//按键检测任务
 void AppTaskStart(void *arg);	//启动任务
+void CanOpen_task(void *arg);	//CANopen主站任务
 
 
 /* 任务句柄 */
@@ -123,21 +137,8 @@ int main(void)
 	
 	/* 初始化调试串口 */
 	USART_Config();
-	printf("main：调试打印测试ok\r\n");
+	printf("main\r\n");
 	
-	/*can收发测试 初始化*/
-	CanTest_Init();
-	printf("main：CanTest_Init运行ok\r\n");
-	printf("main：开始CanTest_SendOnce()\r\n");
-	CanTest_SendOnce();
-	
-	/*临时循环can发送测试
-	while(1)
-	{
-		CanTest_KeySend();
-	}*/
-	
-
     /* RTX5 内核初始化 */
     osKernelInitialize();                               // 初始化内核对象、就绪列表等
 
@@ -171,6 +172,8 @@ static void AppTaskCreate (void)
 	ThreadIdTaskLED = osThreadNew(LED_task, NULL, &LED_attr);
 	//创建按键检测任务
 	ThreadIdTaskKey = osThreadNew(Key_task, NULL, &Key_attr);
+	//创建CANopen主站任务
+	osThreadNew(CanOpen_task, NULL, &CanOpen_attr);
 }
 
 /*
@@ -372,12 +375,67 @@ void AppTaskStart(void *argument)
 	
     while(1)
     {
-		/* 需要周期性处理的程序*/
+		/* 更新系统毫秒计数器，供CanOpen延时判断使用 */
+		g_Sys_1ms_Counter = (u32)osKernelGetTickCount();
 
-		
 		/* 相对延迟 */
 		tick += usFrequency;                          
 		osDelayUntil(tick);
     }
 }
+
+/*
+*********************************************************************************************************
+*	函 数 名: CanOpen_task
+*	功能说明: CANopen主站任务
+*           - 初始化CANopen主站（CAN硬件 + CanFestival定时器）
+*           - 周期处理：CAN接收分发、CAN发送、主站状态机推进
+*	优 先 级: osPriorityAboveNormal
+*	调用周期: 1ms
+*
+* 使用说明：
+*   调用本任务前请先配置 CanMaster.Para：
+*     CanMaster.Para.Baud     = CAN_BAUD_500K;       // 波特率
+*     CanMaster.Para.SVOType  = Can_SVOType_Copley;  // 伺服类型
+*     CanMaster.Para.CheckQuantity = 4;              // 期望上线从站数量
+*     CanMaster.in_CanOpenStart = true;              // 启动CANopen
+*********************************************************************************************************
+*/
+void CanOpen_task(void *arg)
+{
+    uint32_t tick;
+
+    /* 配置CANopen默认参数（可在启动前由上层覆盖） */
+    CanMaster.Para.Baud         = CAN_BAUD_500K;
+    CanMaster.Para.SVOType      = Can_SVOType_Copley;
+    CanMaster.Para.CheckQuantity = 1;
+    CanMaster.in_CanOpenStart   = true;
+
+    /* 启动CanFestival定时器（TIMER2, NVIC优先级1） */
+    canfestival_timer_start(1U, ENABLE);
+
+    printf("CanOpen_task: CANopen\r\n");
+
+    tick = osKernelGetTickCount();
+
+    while(1)
+    {
+        /* 更新毫秒计数器 */
+        g_Sys_1ms_Counter = (u32)osKernelGetTickCount();
+
+        /* 处理CAN接收（从软件FIFO读取，提交给协议栈） */
+        Tsk_CanOpen_RxMsgPro(&CanObjectDict_Data);
+
+        /* 驱动CAN发送（从软件FIFO读取，写入硬件） */
+        Tsk_CanOpen_TxMsgPro(&CanObjectDict_Data);
+
+        /* 推进CANopen主站状态机 */
+        tsk_canopen_master(&CanMaster, &CanObjectDict_Data);
+
+        /* 延迟1ms */
+        tick += 1U;
+        osDelayUntil(tick);
+    }
+}
+
 /*********************************************END OF FILE**********************/

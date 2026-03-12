@@ -340,7 +340,7 @@
               <MiscControls>-Wno-invalid-source-encoding</MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\CMSIS\GD\GD32H7xx\Include;..\GD32H7xx_FWLIB\Include;..\User;..\BSP\led;..\BSP\usart;..\BSP\systick;..\RTX5\inc;..\RTX5\config;..\CMSIS\Core\Include;..\CMSIS\Compiler;..\CMSIS\RTOS2\Include;..\CMSIS\GD\GD32H7xx\Include;..\BSP\key;..\BSP\can</IncludePath>
+              <IncludePath>..\CMSIS\GD\GD32H7xx\Include;..\GD32H7xx_FWLIB\Include;..\User;..\BSP\led;..\BSP\usart;..\BSP\systick;..\RTX5\inc;..\RTX5\config;..\CMSIS\Core\Include;..\CMSIS\Compiler;..\CMSIS\RTOS2\Include;..\CMSIS\GD\GD32H7xx\Include;..\BSP\key;..\BSP\can;..\Drivers\CanOpen\CanFestival-3\include;..\Drivers\CanOpen\CanFestival-3\include\GD32H7;..\Drivers\CanOpen;..\Drivers\CanOpen\example</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -738,6 +738,101 @@
         </Group>
         <Group>
           <GroupName>APP</GroupName>
+        </Group>
+        <Group>
+          <GroupName>CanOpen</GroupName>
+          <Files>
+            <File>
+              <FileName>drv_can_gd32h7.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\drv_can_gd32h7.c</FilePath>
+            </File>
+            <File>
+              <FileName>drv_servo_gd32h7.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\drv_servo_gd32h7.c</FilePath>
+            </File>
+            <File>
+              <FileName>canfestival_timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\drivers\GD32H7\canfestival_timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>LinkCanopenMaster.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\example\LinkCanopenMaster.c</FilePath>
+            </File>
+            <File>
+              <FileName>ObjectDictionary.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\example\ObjectDictionary.c</FilePath>
+            </File>
+            <File>
+              <FileName>dcf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\src\dcf.c</FilePath>
+            </File>
+            <File>
+              <FileName>emcy.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\src\emcy.c</FilePath>
+            </File>
+            <File>
+              <FileName>lifegrd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\src\lifegrd.c</FilePath>
+            </File>
+            <File>
+              <FileName>lss.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\src\lss.c</FilePath>
+            </File>
+            <File>
+              <FileName>nmtMaster.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\src\nmtMaster.c</FilePath>
+            </File>
+            <File>
+              <FileName>nmtSlave.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\src\nmtSlave.c</FilePath>
+            </File>
+            <File>
+              <FileName>objacces.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\src\objacces.c</FilePath>
+            </File>
+            <File>
+              <FileName>pdo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\src\pdo.c</FilePath>
+            </File>
+            <File>
+              <FileName>sdo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\src\sdo.c</FilePath>
+            </File>
+            <File>
+              <FileName>states.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\src\states.c</FilePath>
+            </File>
+            <File>
+              <FileName>symbols.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\src\symbols.c</FilePath>
+            </File>
+            <File>
+              <FileName>sync.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\src\sync.c</FilePath>
+            </File>
+            <File>
+              <FileName>timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\src\timer.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>RTX5_Source</GroupName>
