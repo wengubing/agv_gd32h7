@@ -124,8 +124,14 @@ static void GD32_CAN_Mode_Config(CAN_BAUD_TYPE baud, uint8_t irq_priority)
 
     can_init(CANOPEN_CANX, &can_param);
 
+    /* CAN_INT_MB4..CAN_INT_MB11 -- RX邮箱中断使能查找表 */
+    static const can_interrupt_enum rx_mb_ints[CANOPEN_RX_MB_COUNT] = {
+        CAN_INT_MB4,  CAN_INT_MB5,  CAN_INT_MB6,  CAN_INT_MB7,
+        CAN_INT_MB8,  CAN_INT_MB9,  CAN_INT_MB10, CAN_INT_MB11
+    };
+
     /* 配置TX邮箱 (mailbox 0-3) 为非激活状态 */
-    can_struct_para_init(CAN_MAILBOX_DESCRIPTOR_STRUCT, &mb_desc);
+    can_struct_para_init(CAN_MDSC_STRUCT, &mb_desc);
     mb_desc.code = CAN_MB_TX_STATUS_INACTIVE;
     mb_desc.ide  = 0U;  /* 标准帧 */
     mb_desc.rtr  = 0U;
@@ -134,24 +140,24 @@ static void GD32_CAN_Mode_Config(CAN_BAUD_TYPE baud, uint8_t irq_priority)
         can_mailbox_config(CANOPEN_CANX, i, &mb_desc);
     }
 
-    /* 配置RX邮箱 (mailbox 4-11)，ID=0, 私有过滤器=0 接收所有CANopen报文 */
-    can_struct_para_init(CAN_MAILBOX_DESCRIPTOR_STRUCT, &mb_desc);
-    mb_desc.code           = CAN_MB_RX_STATUS_EMPTY;
-    mb_desc.ide            = 0U;  /* 标准帧 */
-    mb_desc.rtr            = 0U;
-    mb_desc.id             = 0U;
-    mb_desc.private_filter = 0U;  /* 接受所有ID */
+    /* 配置RX邮箱 (mailbox 4-11)，ID=0，接收所有CANopen报文 */
+    can_struct_para_init(CAN_MDSC_STRUCT, &mb_desc);
+    mb_desc.code = CAN_MB_RX_STATUS_EMPTY;
+    mb_desc.ide  = 0U;  /* 标准帧 */
+    mb_desc.rtr  = 0U;
+    mb_desc.id   = 0U;
     for (i = CANOPEN_RX_MB_START; i < CANOPEN_RX_MB_START + CANOPEN_RX_MB_COUNT; i++) {
         can_mailbox_config(CANOPEN_CANX, i, &mb_desc);
+        /* 私有过滤器置0：所有ID均可接收（无过滤） */
+        can_private_filter_config(CANOPEN_CANX, i, 0U);
     }
 
     /* 使能中断 */
     nvic_irq_enable(CANOPEN_CAN_IRQn, irq_priority, 0U);
 
-    /* 使能每个RX邮箱的中断 (MB4-MB11 对应 CAN_INT_MB4..CAN_INT_MB11) */
-    for (i = CANOPEN_RX_MB_START; i < CANOPEN_RX_MB_START + CANOPEN_RX_MB_COUNT; i++) {
-        /* CAN_INT_MBx 枚举值从 CAN_INT_MB0 开始，顺序递增 */
-        can_interrupt_enable(CANOPEN_CANX, (can_interrupt_enum)(CAN_INT_MB0 << i));
+    /* 使能每个RX邮箱的中断 (MB4-MB11) */
+    for (i = 0U; i < CANOPEN_RX_MB_COUNT; i++) {
+        can_interrupt_enable(CANOPEN_CANX, rx_mb_ints[i]);
     }
 
     /* 进入正常模式 */
@@ -204,7 +210,7 @@ uint8_t GD32_CAN_SendMsg(GD32_CAN_Msg_t *msg)
         }
     }
 
-    can_struct_para_init(CAN_MAILBOX_DESCRIPTOR_STRUCT, &tx_mb);
+    can_struct_para_init(CAN_MDSC_STRUCT, &tx_mb);
     tx_mb.id         = msg->id;
     tx_mb.ide        = msg->ide;
     tx_mb.rtr        = msg->rtr;
@@ -227,27 +233,47 @@ uint8_t GD32_CAN_SendMsg(GD32_CAN_Msg_t *msg)
  * ============================================================================
  * 名称：GD32_CAN_RxISR
  * 功能：CAN RX中断服务处理函数（在IRQ handler中调用）
- *       读取邮箱数据并写入软件FIFO
+ *       检查RX邮箱中断标志，读取数据写入软件FIFO
  * ============================================================================
  */
 void GD32_CAN_RxISR(void)
 {
+    /* RX邮箱中断标志查找表 (MB4..MB11) */
+    static const can_interrupt_flag_enum rx_int_flags[CANOPEN_RX_MB_COUNT] = {
+        CAN_INT_FLAG_MB4,  CAN_INT_FLAG_MB5,  CAN_INT_FLAG_MB6,  CAN_INT_FLAG_MB7,
+        CAN_INT_FLAG_MB8,  CAN_INT_FLAG_MB9,  CAN_INT_FLAG_MB10, CAN_INT_FLAG_MB11
+    };
+
+    /* 每个RX邮箱对应的数据缓冲区（标准CAN最大8字节=2个uint32_t） */
+    static uint32_t rx_data_buf[CANOPEN_RX_MB_COUNT][2];
+
     can_mailbox_descriptor_struct rx_mb;
     GD32_CAN_RX_FIFO_t *pFifo = &GD32_CAN.rx_fifo;
-    uint8_t i, mb_idx;
+    uint8_t i, j;
+    uint8_t mb_local_idx;
     uint16_t next_write;
+    uint8_t dlc;
 
-    for (mb_idx = CANOPEN_RX_MB_START;
-         mb_idx < CANOPEN_RX_MB_START + CANOPEN_RX_MB_COUNT;
-         mb_idx++)
+    for (mb_local_idx = 0U; mb_local_idx < CANOPEN_RX_MB_COUNT; mb_local_idx++)
     {
-        /* 检查邮箱是否有新数据（CODE=FULL） */
-        can_struct_para_init(CAN_MAILBOX_DESCRIPTOR_STRUCT, &rx_mb);
-        can_mailbox_read(CANOPEN_CANX, mb_idx, &rx_mb);
+        uint8_t mb_idx = (uint8_t)(CANOPEN_RX_MB_START + mb_local_idx);
 
-        if (rx_mb.code != CAN_MB_RX_STATUS_FULL) {
+        /* 检查该邮箱是否触发了中断 */
+        if (RESET == can_interrupt_flag_get(CANOPEN_CANX, rx_int_flags[mb_local_idx])) {
             continue;
         }
+
+        /* 读取邮箱数据（函数内部会清除STAT位并解锁邮箱） */
+        rx_mb.data       = rx_data_buf[mb_local_idx];
+        rx_mb.data_bytes = 8U;  /* 预留最大长度 */
+        if (ERROR == can_mailbox_receive_data_read(CANOPEN_CANX, mb_idx, &rx_mb)) {
+            /* 读取失败，清除中断标志继续 */
+            can_interrupt_flag_clear(CANOPEN_CANX, rx_int_flags[mb_local_idx]);
+            continue;
+        }
+
+        /* 清除中断标志 */
+        can_interrupt_flag_clear(CANOPEN_CANX, rx_int_flags[mb_local_idx]);
 
         /* 检查FIFO是否已满 */
         next_write = pFifo->write_adr + 1U;
@@ -256,33 +282,30 @@ void GD32_CAN_RxISR(void)
         }
         if (next_write == pFifo->read_adr) {
             /* FIFO满，丢弃此帧 */
-            /* 清除邮箱，恢复为空状态 */
-            rx_mb.code = CAN_MB_RX_STATUS_EMPTY;
-            can_mailbox_config(CANOPEN_CANX, mb_idx, &rx_mb);
             continue;
         }
 
-        /* 写入软件FIFO */
+        /* 写入软件FIFO（can_mailbox_receive_data_read已做小端转换） */
+        dlc = (uint8_t)rx_mb.data_bytes;
+        if (dlc > 8U) {
+            dlc = 8U;
+        }
         pFifo->msg[pFifo->write_adr].id  = rx_mb.id;
         pFifo->msg[pFifo->write_adr].ide = (uint8_t)rx_mb.ide;
         pFifo->msg[pFifo->write_adr].rtr = (uint8_t)rx_mb.rtr;
-        pFifo->msg[pFifo->write_adr].dlc = (uint8_t)rx_mb.data_bytes;
+        pFifo->msg[pFifo->write_adr].dlc = dlc;
 
-        for (i = 0U; i < rx_mb.data_bytes && i < 8U; i++) {
-            if (i < 4U) {
-                pFifo->msg[pFifo->write_adr].data[i] =
-                    (uint8_t)((rx_mb.data[0] >> (i * 8U)) & 0xFFU);
+        for (j = 0U; j < dlc; j++) {
+            if (j < 4U) {
+                pFifo->msg[pFifo->write_adr].data[j] =
+                    (uint8_t)((rx_data_buf[mb_local_idx][0] >> (j * 8U)) & 0xFFU);
             } else {
-                pFifo->msg[pFifo->write_adr].data[i] =
-                    (uint8_t)((rx_mb.data[1] >> ((i - 4U) * 8U)) & 0xFFU);
+                pFifo->msg[pFifo->write_adr].data[j] =
+                    (uint8_t)((rx_data_buf[mb_local_idx][1] >> ((j - 4U) * 8U)) & 0xFFU);
             }
         }
 
         pFifo->write_adr = next_write;
-
-        /* 清除邮箱，恢复为空状态，准备接收下一帧 */
-        rx_mb.code = CAN_MB_RX_STATUS_EMPTY;
-        can_mailbox_config(CANOPEN_CANX, mb_idx, &rx_mb);
     }
 }
 

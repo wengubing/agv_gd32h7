@@ -32,6 +32,7 @@ by biyabc   2018.03.13
 #include <string.h>
 #include "timer.h"
 #include "canfestival.h"
+#include "../drv_servo_gd32h7.h"
 #include "LinkCanopenMaster.h"
 
 //宏定义
