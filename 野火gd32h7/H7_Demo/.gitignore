@@ -1,0 +1,12 @@
+﻿GD32H7_BootLoader/Project/Output/
+GD32RTX5/Project/Fire_H759IM_GPIO.uvguix.DZ-B74
+GD32H7_BootLoader/Project/GD32H7_BootLoader.uvguix.DZ-B74
+GD32H7_BootLoader/Project/Listings/Fire_H759IM.map
+GD32RTX5/Project/Listing/gpio_led.map
+GD32RTX5/Project/EventRecorderStub.scvd
+
+/.vs
+*.wxb
+*.map
+*.lst
+/GD32RTX5/Project/vs_prj/.vs
