@@ -27,6 +27,8 @@
 
 //头文件
 #include "gd32h7xx.h"
+#include "common_def.h"
+#include "LinkCanopenMaster.h"
 #include <stdbool.h>
 //#include <stdio.h>
 //#include "bsp_can_fd.h"
@@ -34,16 +36,28 @@
 //宏定义
  
 //对象定义
- 
+//仿真便捷查看 全局指针对象
+typedef struct
+{
+	volatile u32* pSysMs;
+	LinkCanOpen* pCanOpen;									//CAN Open
+	CO_Data* pCanObj;										//CAN Open对象字典
+	UNI_CANi* pUniCan;										//CAN对象
+}GOC_StDef;
+
 /*外部声明*/
 /*can配置对象*/
 CAN_TEST_EXT can_mailbox_descriptor_struct transmit_message;
 CAN_TEST_EXT can_mailbox_descriptor_struct receive_message;
 CAN_TEST_EXT FlagStatus can2_receive_flag;
+CAN_TEST_EXT GOC_StDef GOC;	//全局对象
+
 CAN_TEST_EXT bool CanTest_Init(void);
 CAN_TEST_EXT bool CanTest_SendOnce(void);
 CAN_TEST_EXT bool CanTest_KeySend(void);
-	
+CAN_TEST_EXT bool CanopenMasterTest_Init(void);
+CAN_TEST_EXT bool GOC_Init(void);
+
 #endif
 
 /************************************END OF FILE************************************/

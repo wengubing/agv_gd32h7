@@ -19,12 +19,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\User\can_test.c" />
-    <ClCompile Include="..\..\User\main.c" />
+    <ClCompile Include="..\..\**\*.c" />
+    <ClCompile Include="..\..\**\*.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\User\can_test.h" />
-    <ClInclude Include="..\..\User\main.h" />
+    <ClInclude Include="..\..\**\*.h" />
+    <ClInclude Include="..\..\**\*.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\**\*.s" />
+    <None Include="..\..\**\*.asm" />
+    <None Include=".github\copilot-instructions.md" />
+    <None Include="build_keil.ps1" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>

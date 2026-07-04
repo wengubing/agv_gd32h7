@@ -11,12 +11,32 @@
 #include "gd32h7xx.h"
 #include <stdio.h>
 #include "cmsis_os2.h"
+#include "common_def.h"
 
 //底层驱动
 #include "bsp_gpio_led.h"    
 #include "bsp_gpio_key.h" 
 #include "bsp_usart.h"                                      //调试打印串口
 #include "can_test.h"                                       //can收发测试
+#include "LinkCanopenMaster.h"                              // CANopen主站管理
+#include "ObjectDictionary.h"                               // CANopen对象字典
+#include "drv_can.h"                                        // CAN驱动
+
+/* SysTimer(50us) 配置 */
+#define SYS_TIMER_PERIPH                  TIMER6
+#define SYS_TIMER_RCU                     RCU_TIMER6
+#define SYS_TIMER_IRQn                    TIMER6_IRQn
+#define SYS_TIMER_INT_FLAG                TIMER_INT_FLAG_UP
+#define SYS_TIMER_INT                     TIMER_INT_UP
+#define SYS_TIMER_TICK_HZ                 1000000U
+#define SYS_TIMER_PERIOD_US               50U
+
+static void SysTimer_Init(void);
+static void sys_timer_irq(void);
+
+/*临时全局变量*/
+volatile u32 g_Sys_1ms_Counter = 0;
+volatile u32 g_Sys_50us_Counter = 0;
 
 /* 任务栈和属性定义
  * 使用 uint64_t 类型数组定义栈，确保 8 字节对齐（Cortex-M7 要求栈对齐）
@@ -47,6 +67,36 @@ static const osThreadAttr_t ThreadStart_Attr =          // 启动任务 任务属性
     .stack_mem  = StartThread_stack,                    // 指向任务栈的指针
     .stack_size = sizeof(StartThread_stack),            // 栈大小（字节）
     .priority   = osPriorityIdle                      	// 任务优先级（最低）
+};
+
+/*canopen接收任务信息*/
+static uint64_t CanOpenRx_stack[1024 / 8];
+static const osThreadAttr_t CanOpenRx_Attr =
+{
+    .name = "CanOpenRx",
+    .stack_mem = CanOpenRx_stack,
+    .stack_size = sizeof(CanOpenRx_stack),
+    .priority = osPriorityHigh
+};
+
+/*canopen发送任务信息*/
+static uint64_t CanOpenTx_stack[1024 / 8];
+static const osThreadAttr_t CanOpenTx_Attr =
+{
+    .name = "CanOpenTx",
+    .stack_mem = CanOpenTx_stack,
+    .stack_size = sizeof(CanOpenTx_stack),
+    .priority = osPriorityHigh
+};
+
+/* CANopen 1ms循环任务 */
+static uint64_t CanOpenCycle1ms_stack[1024 / 8];
+static const osThreadAttr_t CanOpenCycle1ms_Attr =
+{
+    .name = "CanOpen1ms",
+    .stack_mem = CanOpenCycle1ms_stack,
+    .stack_size = sizeof(CanOpenCycle1ms_stack),
+    .priority = osPriorityAboveNormal
 };
 
 /* ---为队列和信号量测试定义的任务栈和属性 --- */
@@ -86,7 +136,9 @@ void Semaphore_task(void *arg);	//信号量同步任务
 void LED_task(void *arg);      	// LED 控制任务
 void Key_task(void *arg);		//按键检测任务
 void AppTaskStart(void *arg);	//启动任务
-
+void CanOpenRx_task(void* arg);	//canopen接收任务
+void CanOpenTx_task(void* arg);	//canopen发送任务
+void CanOpenCycle1ms_task(void* arg);  // CANopen 1ms循环任务
 
 /* 任务句柄 */
 osThreadId_t ThreadIdSender = NULL;
@@ -95,6 +147,9 @@ osThreadId_t ThreadIdSemaphore = NULL;
 osThreadId_t ThreadIdTaskLED = NULL;
 osThreadId_t ThreadIdStart = NULL;
 osThreadId_t ThreadIdTaskKey = NULL;
+osThreadId_t ThreadIdCanOpenRx = NULL;
+osThreadId_t ThreadIdCanOpenTx = NULL;
+osThreadId_t ThreadIdCanOpenCycle1ms = NULL;
 
 /*
 *********************************************************************************************************
@@ -106,6 +161,9 @@ osThreadId_t ThreadIdTaskKey = NULL;
 */
 int main(void)
 {
+    /*goc初始化*/
+    GOC_Init();
+
 	/* 使能cpu高速缓存*/ 
     SCB_EnableICache();     // 使能 I-Cache
     SCB_EnableDCache();     // 使能 D-Cache
@@ -117,6 +175,9 @@ int main(void)
     /* 启用 FPU（浮点运算单元） */
     /* Cortex-M7 内核需要手动开启 FPU，否则浮点指令会触发 HardFault */
     SCB->CPACR |= (3UL << 20) | (3UL << 22);            // 启用 CP10、CP11 全权限
+
+    /* 初始化系统定时器中断（50us） */
+    SysTimer_Init();
 	
 	/* 初始化按键 */
     KEY_GPIO_Config();
@@ -171,6 +232,12 @@ static void AppTaskCreate (void)
 	ThreadIdTaskLED = osThreadNew(LED_task, NULL, &LED_attr);
 	//创建按键检测任务
 	ThreadIdTaskKey = osThreadNew(Key_task, NULL, &Key_attr);
+	//创建canopen接收任务
+	ThreadIdCanOpenRx = osThreadNew(CanOpenRx_task, NULL, &CanOpenRx_Attr);
+	//创建canopen发送任务
+	ThreadIdCanOpenTx = osThreadNew(CanOpenTx_task, NULL, &CanOpenTx_Attr);
+    // 创建CANopen 1ms循环任务
+    ThreadIdCanOpenCycle1ms = osThreadNew(CanOpenCycle1ms_task, NULL, &CanOpenCycle1ms_Attr);
 }
 
 /*
@@ -324,7 +391,51 @@ void Key_task(void *arg)
     }
 }
 
+/*CanOpenRx*/
+void CanOpenRx_task(void* arg)
+{
+    while (1)
+    {
+        if (UNI_CAN[user_CAN_ID].rx_fifo.read_adr != UNI_CAN[user_CAN_ID].rx_fifo.write_adr)
+        {
+            Tsk_CanOpen_RxMsgPro(&CanObjectDict_Data, &UNI_CAN[user_CAN_ID]);
+        }
+        osDelay(1U);
+    }
+}
 
+/*CanOpenTx*/
+void CanOpenTx_task(void* arg)
+{
+    while (1)
+    {
+        if (UNI_CAN[user_CAN_ID].tx_fifo.read_adr != UNI_CAN[user_CAN_ID].tx_fifo.write_adr)
+        {
+			Tsk_CanOpen_TxMsgPro(&CanObjectDict_Data, &UNI_CAN[user_CAN_ID]);
+        }
+        osDelay(1U);
+    }
+}
+
+/* CANopen 1ms循环任务 */
+void CanOpenCycle1ms_task(void* arg)
+{
+    const uint32_t usFrequency = 1U; /* 1ms周期 */
+    uint32_t tick;
+
+    /* 获取当前时间 */
+    tick = osKernelGetTickCount();
+
+    while (1)
+    {
+        /* 参考 STM32 工程 AppTaskCycleScan1ms，在 1ms 周期内执行 CANopen 主站状态机 */
+        tsk_canopen_master(&CanMaster, &CanObjectDict_Data, &UNI_CAN[user_CAN_ID]);
+
+        /* 保持 1ms 周期运行 */
+        tick += usFrequency;
+        osDelayUntil(tick);
+    }
+}
 
 /*
 *********************************************************************************************************
@@ -380,4 +491,52 @@ void AppTaskStart(void *argument)
 		osDelayUntil(tick);
     }
 }
+
+static void SysTimer_Init(void)
+{
+    uint32_t timer_clock_hz;
+    uint16_t prescaler;
+    timer_parameter_struct timer_initpara;
+
+    rcu_periph_clock_enable(SYS_TIMER_RCU);
+
+    timer_clock_hz = rcu_clock_freq_get(CK_APB1);
+    if((RCU_CFG0 & RCU_CFG0_APB1PSC) != RCU_APB1_CKAHB_DIV1) {
+        timer_clock_hz *= 2U;
+    }
+
+    prescaler = (uint16_t)(timer_clock_hz / SYS_TIMER_TICK_HZ - 1U);
+
+    timer_deinit(SYS_TIMER_PERIPH);
+    timer_struct_para_init(&timer_initpara);
+    timer_initpara.prescaler = prescaler;
+    timer_initpara.alignedmode = TIMER_COUNTER_EDGE;
+    timer_initpara.counterdirection = TIMER_COUNTER_UP;
+    timer_initpara.period = SYS_TIMER_PERIOD_US - 1U;
+    timer_init(SYS_TIMER_PERIPH, &timer_initpara);
+
+    timer_interrupt_flag_clear(SYS_TIMER_PERIPH, SYS_TIMER_INT_FLAG);
+    timer_interrupt_enable(SYS_TIMER_PERIPH, SYS_TIMER_INT);
+    nvic_irq_enable(SYS_TIMER_IRQn, 5U, 0U);
+    timer_enable(SYS_TIMER_PERIPH);
+}
+
+void TIMER6_IRQHandler(void)
+{
+    sys_timer_irq();
+}
+
+/* 系统定时器中断处理 */
+static void sys_timer_irq(void)
+{
+    if(SET == timer_interrupt_flag_get(SYS_TIMER_PERIPH, SYS_TIMER_INT_FLAG)) {
+        timer_interrupt_flag_clear(SYS_TIMER_PERIPH, SYS_TIMER_INT_FLAG);
+
+        if(++g_Sys_50us_Counter >= 20U) {
+            g_Sys_50us_Counter = 0U;
+            g_Sys_1ms_Counter++;
+        }
+    }
+}
+
 /*********************************************END OF FILE**********************/

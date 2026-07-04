@@ -22,6 +22,8 @@
 #include "bsp_can_fd.h"
 #include "bsp_usart.h"                                      //调试打印串口
 #include "bsp_gpio_key.h"									//按键扫描
+#include "main.h"
+#include "LinkCanopenMaster.h"
 
 //宏定义
 
@@ -37,6 +39,12 @@ bool CanTest_Init(void)
 	can_struct_para_init(CAN_MDSC_STRUCT, &receive_message);
 	/* 初始化接收邮箱 */
 	Init_RxMes(&receive_message);
+	
+	//canFestival_timer配置初始化
+	canfestival_timer_start();
+
+	//CANopen主站测试初始化
+	CanopenMasterTest_Init();
 
 	return 1;
 }
@@ -99,6 +107,36 @@ bool CanTest_KeySend(void)
 		CanTest_SendOnce();
 	}
 	
+	return 1;
+}
+
+/*canopen 主站测试初始化*/
+bool CanopenMasterTest_Init(void)
+{
+    UNI_CAN[user_CAN_ID].ini.CANx = user_CAN_ID;
+    UNI_CAN[user_CAN_ID].ini.Baud = CAN_BAUDRATE_500K;
+    UNI_CAN[user_CAN_ID].CanStatusFlag = CAN_NoneError;
+    UNI_CAN[user_CAN_ID].rx_fifo.read_adr = 0;
+    UNI_CAN[user_CAN_ID].rx_fifo.write_adr = 0;
+    UNI_CAN[user_CAN_ID].tx_fifo.read_adr = 0;
+    UNI_CAN[user_CAN_ID].tx_fifo.write_adr = 0;
+
+	CanMaster.Para.CheckQuantity = 1;
+	CanMaster.Para.SVOType = Can_SVOType_Kinco;
+    CanMaster.in_CanOpenStart = true;
+    CanMaster.CanopenStep = Step_ParaIni;
+
+	return 1;
+}
+
+/*GOC初始化*/
+bool GOC_Init(void)
+{
+	GOC.pSysMs = &g_Sys_1ms_Counter;
+	GOC.pCanOpen = &CanMaster;
+	GOC.pCanObj = &CanObjectDict_Data;
+	GOC.pUniCan = &UNI_CAN[user_CAN_ID];
+
 	return 1;
 }
 

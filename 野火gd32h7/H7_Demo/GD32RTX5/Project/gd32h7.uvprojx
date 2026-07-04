@@ -314,7 +314,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>2</Optim>
+            <Optim>1</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -338,9 +338,9 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls>-Wno-invalid-source-encoding</MiscControls>
-              <Define></Define>
+              <Define>SIMULATOR_ENV=1</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CMSIS\GD\GD32H7xx\Include;..\GD32H7xx_FWLIB\Include;..\User;..\BSP\led;..\BSP\usart;..\BSP\systick;..\RTX5\inc;..\RTX5\config;..\CMSIS\Core\Include;..\CMSIS\Compiler;..\CMSIS\RTOS2\Include;..\CMSIS\GD\GD32H7xx\Include;..\BSP\key;..\BSP\can</IncludePath>
+              <IncludePath>..\CMSIS\GD\GD32H7xx\Include;..\GD32H7xx_FWLIB\Include;..\User;..\BSP\led;..\BSP\usart;..\BSP\systick;..\RTX5\inc;..\RTX5\config;..\CMSIS\Core\Include;..\CMSIS\Compiler;..\CMSIS\RTOS2\Include;..\CMSIS\GD\GD32H7xx\Include;..\BSP\key;..\BSP\can;..\Drivers\CanOpen\CanFestival-3\include;..\Drivers\CanOpen\CanFestival-3\include\GD32;..\Drivers\CanOpen\CanFestival-3\example;..\CBB\user\basecalfunc;..\Drivers\Can;..\Drivers\Common;..\Drivers</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -356,7 +356,7 @@
             <ClangAsOpt>4</ClangAsOpt>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define></Define>
+              <Define>SIMULATOR_ENV=1</Define>
               <Undefine></Undefine>
               <IncludePath></IncludePath>
             </VariousControls>
@@ -672,37 +672,306 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>User</GroupName>
+          <GroupName>Drivers</GroupName>
           <Files>
             <File>
-              <FileName>main.c</FileName>
+              <FileName>drv_can.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\User\main.c</FilePath>
-            </File>
-            <File>
-              <FileName>gd32h7xx_it.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\gd32h7xx_it.c</FilePath>
-            </File>
-            <File>
-              <FileName>RTE_Components.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\User\RTE_Components.h</FilePath>
-            </File>
-            <File>
-              <FileName>can_test.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\User\can_test.c</FilePath>
+              <FilePath>..\Drivers\Can\drv_can.c</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>Doc</GroupName>
+          <GroupName>CanFestival-3</GroupName>
           <Files>
             <File>
-              <FileName>readme.txt</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Doc\readme.txt</FilePath>
+              <FileName>dcf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\src\dcf.c</FilePath>
+            </File>
+            <File>
+              <FileName>emcy.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\src\emcy.c</FilePath>
+            </File>
+            <File>
+              <FileName>lifegrd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\src\lifegrd.c</FilePath>
+            </File>
+            <File>
+              <FileName>lss.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\src\lss.c</FilePath>
+            </File>
+            <File>
+              <FileName>nmtMaster.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\src\nmtMaster.c</FilePath>
+            </File>
+            <File>
+              <FileName>nmtSlave.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\src\nmtSlave.c</FilePath>
+            </File>
+            <File>
+              <FileName>objacces.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\src\objacces.c</FilePath>
+            </File>
+            <File>
+              <FileName>pdo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\src\pdo.c</FilePath>
+            </File>
+            <File>
+              <FileName>sdo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\src\sdo.c</FilePath>
+            </File>
+            <File>
+              <FileName>states.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\src\states.c</FilePath>
+            </File>
+            <File>
+              <FileName>sync.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\src\sync.c</FilePath>
+            </File>
+            <File>
+              <FileName>timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\src\timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>symbols.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\src\symbols.c</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds>
+                  <Cads>
+                    <interw>2</interw>
+                    <Optim>0</Optim>
+                    <oTime>2</oTime>
+                    <SplitLS>2</SplitLS>
+                    <OneElfS>2</OneElfS>
+                    <Strict>2</Strict>
+                    <EnumInt>2</EnumInt>
+                    <PlainCh>2</PlainCh>
+                    <Ropi>2</Ropi>
+                    <Rwpi>2</Rwpi>
+                    <wLevel>0</wLevel>
+                    <uThumb>2</uThumb>
+                    <uSurpInc>2</uSurpInc>
+                    <uC99>2</uC99>
+                    <uGnu>2</uGnu>
+                    <useXO>2</useXO>
+                    <v6Lang>0</v6Lang>
+                    <v6LangP>0</v6LangP>
+                    <vShortEn>2</vShortEn>
+                    <vShortWch>2</vShortWch>
+                    <v6Lto>2</v6Lto>
+                    <v6WtE>2</v6WtE>
+                    <v6Rtti>2</v6Rtti>
+                    <VariousControls>
+                      <MiscControls></MiscControls>
+                      <Define>SIMULATOR_ENV=1</Define>
+                      <Undefine></Undefine>
+                      <IncludePath></IncludePath>
+                    </VariousControls>
+                  </Cads>
+                </FileArmAds>
+              </FileOption>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>CanOpen</GroupName>
+          <Files>
+            <File>
+              <FileName>LinkCanopenMaster.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\example\LinkCanopenMaster.c</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>1</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds>
+                  <Cads>
+                    <interw>2</interw>
+                    <Optim>0</Optim>
+                    <oTime>2</oTime>
+                    <SplitLS>2</SplitLS>
+                    <OneElfS>2</OneElfS>
+                    <Strict>2</Strict>
+                    <EnumInt>2</EnumInt>
+                    <PlainCh>2</PlainCh>
+                    <Ropi>2</Ropi>
+                    <Rwpi>2</Rwpi>
+                    <wLevel>0</wLevel>
+                    <uThumb>2</uThumb>
+                    <uSurpInc>2</uSurpInc>
+                    <uC99>2</uC99>
+                    <uGnu>2</uGnu>
+                    <useXO>2</useXO>
+                    <v6Lang>0</v6Lang>
+                    <v6LangP>0</v6LangP>
+                    <vShortEn>2</vShortEn>
+                    <vShortWch>2</vShortWch>
+                    <v6Lto>2</v6Lto>
+                    <v6WtE>2</v6WtE>
+                    <v6Rtti>2</v6Rtti>
+                    <VariousControls>
+                      <MiscControls></MiscControls>
+                      <Define>SIMULATOR_ENV=1</Define>
+                      <Undefine></Undefine>
+                      <IncludePath></IncludePath>
+                    </VariousControls>
+                  </Cads>
+                </FileArmAds>
+              </FileOption>
+            </File>
+            <File>
+              <FileName>ObjectDictionary.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\example\ObjectDictionary.c</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>1</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds>
+                  <Cads>
+                    <interw>2</interw>
+                    <Optim>0</Optim>
+                    <oTime>2</oTime>
+                    <SplitLS>2</SplitLS>
+                    <OneElfS>2</OneElfS>
+                    <Strict>2</Strict>
+                    <EnumInt>2</EnumInt>
+                    <PlainCh>2</PlainCh>
+                    <Ropi>2</Ropi>
+                    <Rwpi>2</Rwpi>
+                    <wLevel>0</wLevel>
+                    <uThumb>2</uThumb>
+                    <uSurpInc>2</uSurpInc>
+                    <uC99>2</uC99>
+                    <uGnu>2</uGnu>
+                    <useXO>2</useXO>
+                    <v6Lang>0</v6Lang>
+                    <v6LangP>0</v6LangP>
+                    <vShortEn>2</vShortEn>
+                    <vShortWch>2</vShortWch>
+                    <v6Lto>2</v6Lto>
+                    <v6WtE>2</v6WtE>
+                    <v6Rtti>2</v6Rtti>
+                    <VariousControls>
+                      <MiscControls></MiscControls>
+                      <Define>SIMULATOR_ENV=1</Define>
+                      <Undefine></Undefine>
+                      <IncludePath></IncludePath>
+                    </VariousControls>
+                  </Cads>
+                </FileArmAds>
+              </FileOption>
+            </File>
+            <File>
+              <FileName>canfestival_timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\CanOpen\CanFestival-3\drivers\GD32\canfestival_timer.c</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>1</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds>
+                  <Cads>
+                    <interw>2</interw>
+                    <Optim>0</Optim>
+                    <oTime>2</oTime>
+                    <SplitLS>2</SplitLS>
+                    <OneElfS>2</OneElfS>
+                    <Strict>2</Strict>
+                    <EnumInt>2</EnumInt>
+                    <PlainCh>2</PlainCh>
+                    <Ropi>2</Ropi>
+                    <Rwpi>2</Rwpi>
+                    <wLevel>0</wLevel>
+                    <uThumb>2</uThumb>
+                    <uSurpInc>2</uSurpInc>
+                    <uC99>2</uC99>
+                    <uGnu>2</uGnu>
+                    <useXO>2</useXO>
+                    <v6Lang>0</v6Lang>
+                    <v6LangP>0</v6LangP>
+                    <vShortEn>2</vShortEn>
+                    <vShortWch>2</vShortWch>
+                    <v6Lto>2</v6Lto>
+                    <v6WtE>2</v6WtE>
+                    <v6Rtti>2</v6Rtti>
+                    <VariousControls>
+                      <MiscControls></MiscControls>
+                      <Define>SIMULATOR_ENV=1</Define>
+                      <Undefine></Undefine>
+                      <IncludePath></IncludePath>
+                    </VariousControls>
+                  </Cads>
+                </FileArmAds>
+              </FileOption>
             </File>
           </Files>
         </Group>
@@ -737,7 +1006,14 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>APP</GroupName>
+          <GroupName>CBB</GroupName>
+          <Files>
+            <File>
+              <FileName>basecalfunc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CBB\user\basecalfunc\basecalfunc.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>RTX5_Source</GroupName>
@@ -826,6 +1102,44 @@
               <FileName>RTX_Config.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\RTX5\config\RTX_Config.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>User</GroupName>
+          <Files>
+            <File>
+              <FileName>main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\main.c</FilePath>
+            </File>
+            <File>
+              <FileName>gd32h7xx_it.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\gd32h7xx_it.c</FilePath>
+            </File>
+            <File>
+              <FileName>RTE_Components.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\User\RTE_Components.h</FilePath>
+            </File>
+            <File>
+              <FileName>can_test.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\can_test.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>APP</GroupName>
+        </Group>
+        <Group>
+          <GroupName>Doc</GroupName>
+          <Files>
+            <File>
+              <FileName>readme.txt</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Doc\readme.txt</FilePath>
             </File>
           </Files>
         </Group>

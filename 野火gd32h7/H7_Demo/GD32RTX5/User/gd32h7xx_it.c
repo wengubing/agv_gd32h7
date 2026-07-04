@@ -37,6 +37,7 @@ OF SUCH DAMAGE.
 #include "bsp_usart.h"
 #include "bsp_can_fd.h"
 #include "can_test.h"                                       //canÊÕ·¢²âÊÔ
+#include "drv_can.h"
 
 /*!
     \brief      this function handles NMI exception
@@ -164,6 +165,9 @@ void DebugMon_Handler(void)
 
 void CAN_RX_IRQHANDLER(void)
 {
+    uint8_t i;
+    uint8_t *rx_bytes;
+    CAN_RX_FIFO *p_can_rx_buff;
     uint32_t timeout = 0xFFFFFFU;
 
     while((RESET == can_flag_get(CANX, CAN_FLAG_MB1)) && (0U != timeout))
@@ -175,6 +179,24 @@ void CAN_RX_IRQHANDLER(void)
     {
         can_mailbox_receive_data_read(CANX, CAN_RECEIVE_NUM, &receive_message);
         can_interrupt_flag_clear(CANX, CAN_INT_FLAG_MB1);
+
+        p_can_rx_buff = (CAN_RX_FIFO *)&UNI_CAN[user_CAN_ID].rx_fifo;
+        p_can_rx_buff->can_rx_msg[p_can_rx_buff->write_adr].StdId = (receive_message.id & 0x7FFU);
+        p_can_rx_buff->can_rx_msg[p_can_rx_buff->write_adr].ExtId = receive_message.id;
+        p_can_rx_buff->can_rx_msg[p_can_rx_buff->write_adr].IDE = (uint8_t)(receive_message.ide ? CAN_ID_EXT : CAN_ID_STD);
+        p_can_rx_buff->can_rx_msg[p_can_rx_buff->write_adr].RTR = (uint8_t)(receive_message.rtr ? CAN_RTR_REMOTE : CAN_RTR_DATA);
+        p_can_rx_buff->can_rx_msg[p_can_rx_buff->write_adr].DLC = (uint8_t)((receive_message.data_bytes <= 8U) ? receive_message.data_bytes : 8U);
+
+        rx_bytes = (uint8_t *)receive_message.data;
+        for(i = 0U; i < p_can_rx_buff->can_rx_msg[p_can_rx_buff->write_adr].DLC; i++)
+        {
+            p_can_rx_buff->can_rx_msg[p_can_rx_buff->write_adr].Data[i] = rx_bytes[i];
+        }
+
+        if(++p_can_rx_buff->write_adr >= CAN_RX_BUF_LENGTH_MAX)
+        {
+            p_can_rx_buff->write_adr = 0U;
+        }
 
         if((receive_message.id == CANX_ID) && (receive_message.ide == 1U) && (receive_message.data_bytes == 8U))
         {

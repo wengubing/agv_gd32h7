@@ -35,6 +35,10 @@ OF SUCH DAMAGE.
 #ifndef MAIN_H
 #define MAIN_H
 
+#include "common_def.h"
+
+extern volatile u32 g_Sys_1ms_Counter;
+
 /* led spark function */
 void led_spark(void);
 
