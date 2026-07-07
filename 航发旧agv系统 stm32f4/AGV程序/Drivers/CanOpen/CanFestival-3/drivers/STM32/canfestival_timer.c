@@ -1,4 +1,3 @@
-
 #include "includes.h"
 
 #include "..\..\Drivers\CanOpen\CanFestival-3\example\LinkCanopenMaster.h"
@@ -7,18 +6,15 @@
 
 /************************** Modul variables **********************************/
 // Store the last timer value to calculate the elapsed time
-static TIMEVAL last_time_set = TIMEVAL_MAX;//ÉÏÒ»´ÎµÄÊ±¼ä¼ÆÊı
+static TIMEVAL last_time_set = 0; // ä¹‹å‰åˆå§‹åŒ–ä¸º TIMEVAL_MAXï¼Œä¼šå¯¼è‡´é¦–æ¬¡è®¡ç®—å¼‚å¸¸ï¼Œæ”¹ä¸º 0 å¹¶åœ¨åˆå§‹åŒ–æ—¶åŒæ­¥
 
-
-/*2015-12-22£ºĞÂÔö,by dengyang */
-#define		CanFestivalTimer_CCRX_Val		1000						
+/*2015-12-22ï¼šæ–°å¢,by dengyang */
+#define		CanFestivalTimer_CCRX_Val		1000					
 #define		CanFestivalTimer_ARR_Val		TIMEVAL_MAX
-#define		CanFestivalTimer_PSC_Val		80							// 80M/1000000 --1us  (¶¨Ê±Æ÷ÍâÉèÆµÂÊÎª80M)
+#define		CanFestivalTimer_PSC_Val		80					// 80M/1000000 --1us  (å®šæ—¶å™¨å¤–è®¾é¢‘ç‡ä¸º80M)
 
 
-
-
-/*ÓÃÀ´¶¨Ê±µÄ,Ê±¼äµ½ÁË¾ÍĞèÒªµ÷ÓÃÒ»ÏÂº¯ÊıTimeDispatch()
+/*ç”¨æ¥å®šæ—¶çš„,æ—¶é—´åˆ°äº†å°±éœ€è¦è°ƒç”¨ä¸€ä¸‹å‡½æ•°TimeDispatch()
 value:Set time value 0x0000-0xffff
 */
 void setTimer(TIMEVAL value)
@@ -30,26 +26,31 @@ void setTimer(TIMEVAL value)
 
 }
 
-/*²éÑ¯¾àÀëÏÂÒ»¸ö¶¨Ê±´¥·¢»¹ÓĞ¶àÉÙÊ±¼ä
+/*æŸ¥è¯¢è·ç¦»ä¸‹ä¸€ä¸ªå®šæ—¶è§¦å‘è¿˜æœ‰å¤šå°‘æ—¶é—´
 TIMEVAL:Return current timer value
 */
 TIMEVAL getElapsedTime(void)
 {
-	UNS16 timer = TIM_GetCounter(CanFestivalTimer_Base);	//Copy the value of the running timer
-	
-	timer = timer >= last_time_set ? timer - last_time_set : last_time_set - timer;
-	
-	return timer;
+	UNS16 timer = TIM_GetCounter(CanFestivalTimer_Base);\t//Copy the value of the running timer
+	UNS16 last = (UNS16)last_time_set;
+
+	// æ­£ç¡®å¤„ç†è®¡æ•°å™¨å›ç»•ï¼ˆcounter ä¸ºæ— ç¬¦å· 16 ä½ï¼‰
+	if (timer >= last) {
+		return (TIMEVAL)(timer - last);
+	} else {
+		// å›ç»•æ—¶ï¼Œelapsed = (ARR - last) + timer + 1
+		return (TIMEVAL)((UNS16)(CanFestivalTimer_ARR_Val - last) + (UNS16)timer + 1);
+	}
 }
 
-/*canfestival¶¨Ê±Æ÷ÅäÖÃ*/
+/*canfestivalå®šæ—¶å™¨é…ç½®*/
 void CanFestivalTimer_Config(TIM_TypeDef *Timx, UNS32 Rcc, UNS8 NvicIrq, INTEGER8 pi, FunctionalState NewState)
 {
-    NVIC_InitTypeDef					NVIC_IS;
+    NVIC_InitTypeDef								NVIC_IS;
   	TIM_TimeBaseInitTypeDef		TIM_TimeBaseStructure;
 	
 	
-    /*Ê¹ÄÜ¶¨Ê±Æ÷ÍâÉèÊ±ÖÓ*/
+    /*ä½¿èƒ½å®šæ—¶å™¨å¤–è®¾æ—¶é’Ÿ*/
 		if(Timx==TIM1 || Timx==TIM8 || Timx==TIM9 || Timx==TIM10 || Timx==TIM11)
 		{//AHB2
 			RCC_APB2PeriphClockCmd( Rcc | RCC_APB2Periph_SYSCFG, ENABLE );
@@ -59,34 +60,34 @@ void CanFestivalTimer_Config(TIM_TypeDef *Timx, UNS32 Rcc, UNS8 NvicIrq, INTEGER
 			RCC_APB1PeriphClockCmd( Rcc | RCC_APB2Periph_SYSCFG, ENABLE );
 		}
 		
-		/* Ê±ÖÓ¼°·ÖÆµÉèÖÃ */
+		/* æ—¶é’ŸåŠåˆ†é¢‘è®¾ç½® */
 		TIM_DeInit( Timx );
-    TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;		
-    TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;//¼ÆÊıÄ£Ê½:ÏòÉÏ¼ÆÊı
+    TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1; 		
+    TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;//è®¡æ•°æ¨¡å¼:å‘ä¸Šè®¡æ•°
 		if( (Timx == TIM1) || (Timx == TIM8))
 		{
-			TIM_TimeBaseStructure.TIM_RepetitionCounter = 0;//ÖØĞÂ¼ÆÊıµÄÆğÊ¼Öµ
+			TIM_TimeBaseStructure.TIM_RepetitionCounter = 0;//é‡æ–°è®¡æ•°çš„èµ·å§‹å€¼
 		}
-    TIM_TimeBaseStructure.TIM_Prescaler = (CanFestivalTimer_PSC_Val - 1);//psc  ---Ó°Ïì¼ÆÊıÆµÂÊ
+    TIM_TimeBaseStructure.TIM_Prescaler = (CanFestivalTimer_PSC_Val - 1);//psc  ---å½±å“è®¡æ•°é¢‘ç‡
     TIM_TimeBaseStructure.TIM_Period = CanFestivalTimer_ARR_Val;//arr
     TIM_TimeBaseInit(Timx, &TIM_TimeBaseStructure);
 		
-//		TIM_ARRPreloadConfig(Timx, DISABLE);// Timx->ARR,½ûÖ¹ARR×Ô¶¯ÖØ×°ÔØ»º³åÆ÷
+//		TIM_ARRPreloadConfig(Timx, DISABLE);// Timx->ARR,ç¦æ­¢ARRè‡ªåŠ¨é‡è£…è½½ç¼“å†²å™¨
 		
 		{
-			TIM_OCInitTypeDef  				TIM_OCInitStructure;
+			TIM_OCInitTypeDef						TIM_OCInitStructure;
 			/* Output Compare Timing Mode configuration: Channel1 */
-			TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_Timing;//Êä³ö±È½ÏÄ£Ê½£ºtiming
+			TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_Timing;//è¾“å‡ºæ¯”è¾ƒæ¨¡å¼ï¼štiming
 			TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
-			TIM_OCInitStructure.TIM_Pulse = CanFestivalTimer_CCRX_Val;//±È½ÏÊä³öÖµ
+			TIM_OCInitStructure.TIM_Pulse = CanFestivalTimer_CCRX_Val;//æ¯”è¾ƒè¾“å‡ºå€¼
 			TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
 			TIM_OCInitStructure.TIM_OCIdleState = TIM_OCIdleState_Reset;
 			TIM_OC1Init(Timx, &TIM_OCInitStructure);
 			
-			TIM_OC1PreloadConfig(Timx, TIM_OCPreload_Disable);//½ûÓÃÔ¤×°ÔØ,Ğ´Èëµ½ARRÖĞµÄÖµÁ¢¼´ÓĞĞ§!!!
+			TIM_OC1PreloadConfig(Timx, TIM_OCPreload_Disable);//ç¦ç”¨é¢„è£…è½½,å†™å…¥åˆ°ARRä¸­çš„å€¼ç«‹å³æœ‰æ•ˆ!!!
 		}
 		
-    /*¶¨Ê±Æ÷ÖĞ¶ÏÏòÁ¿ÅäÖÃ*/ 
+    /*å®šæ—¶å™¨ä¸­æ–­å‘é‡é…ï¿½ï¿½ï¿½*/ 
 		if(pi>=0)
 		{
 			NVIC_IS.NVIC_IRQChannel = NvicIrq;
@@ -96,17 +97,21 @@ void CanFestivalTimer_Config(TIM_TypeDef *Timx, UNS32 Rcc, UNS8 NvicIrq, INTEGER
 			NVIC_Init( &NVIC_IS );
 		}
 		
-		TIM_ClearFlag( Timx, CanFestivalTimer_FLAG );// Çå³ıTIMxÒç³öÖĞ¶Ï±êÖ¾
+		TIM_ClearFlag( Timx, CanFestivalTimer_FLAG );// æ¸…é™¤TIMxæº¢å‡ºä¸­æ–­æ ‡å¿—
 		TIM_ITConfig( Timx, CanFestivalTimer_IT, ENABLE );//TIM IT enable
 		
-		TIM_SetCounter(Timx, 0);// tim¼ÆÊıÆ÷ÇåÁã
+		TIM_SetCounter(Timx, 0);// timè®¡æ•°å™¨æ¸…é›¶
+
+		// åœ¨å®šæ—¶å™¨å¯åŠ¨å‰åŒæ­¥ last_time_setï¼Œé¿å…é¦–æ¬¡ getElapsedTime äº§ç”Ÿé”™è¯¯å€¼
+		last_time_set = (TIMEVAL)TIM_GetCounter(Timx);
+
 		TIM_Cmd(Timx, NewState);//TIM enable counter
 }
 
 void CanFestivalTimer_Enable(FunctionalState NewState)
 {
 	if(NewState)		TIM_Cmd(CanFestivalTimer_Base, ENABLE);
-	else						TIM_Cmd(CanFestivalTimer_Base, DISABLE);
+	else					TIM_Cmd(CanFestivalTimer_Base, DISABLE);
 }
 
 
@@ -122,11 +127,11 @@ void CanFestivalTimer_Dispatch(void)
 }
 
 //===========================================
-// Ãû³Æ£ºCanFestivalTimer_IRQHandler
-// ¹¦ÄÜ£ºCanFestival¶¨Ê±Æ÷µ÷¶ÈÖĞ¶Ï·şÎñ³ÌĞò
-// ²ÎÊı£ºÎŞ
-// ·µ»Ø£ºÎŞ
-// ËµÃ÷£ºÎŞ
+// åç§°ï¼šCanFestivalTimer_IRQHandler
+// åŠŸèƒ½ï¼šCanFestivalå®šæ—¶å™¨è°ƒåº¦ä¸­æ–­æœåŠ¡ç¨‹åº
+// å‚æ•°ï¼šæ— 
+// è¿”å›ï¼šæ— 
+// è¯´æ˜ï¼šæ— 
 //============================================================================
 void CanFestivalTimer_IRQHandler(void)
 {
@@ -134,9 +139,7 @@ void CanFestivalTimer_IRQHandler(void)
 	{
 		TIM_ClearITPendingBit(CanFestivalTimer_Base, CanFestivalTimer_IT);
 
-//		isr_sem_send (&sem_CanOpenDispatch);//´«µİµ÷¶ÈÈÎÎñĞÅºÅÊÂ¼ş,ÓÖRTOSÈ¥µ÷¶ÈÖ´ĞĞ
+//		isr_sem_send (&sem_CanOpenDispatch);//ä¼ é€’è°ƒåº¦ä»»åŠ¡ä¿¡å·äº‹ä»¶,åˆRTOSå»è°ƒåº¦æ‰§è¡Œ
 		CanFestivalTimer_Dispatch();
 	}
 }
-
-
